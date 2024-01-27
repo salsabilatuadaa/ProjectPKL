@@ -20,8 +20,8 @@ class UserSeeder extends Seeder
             'role' => 'admin',
             'email' => 'admin@softui.com',
             'password' => Hash::make('secret'),
-            // 'created_at' => now(),
-            // 'updated_at' => now()
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
     }
 }
