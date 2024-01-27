@@ -17,11 +17,11 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             'id' => 1,
-            'name' => 'admin',
+            'role' => 'admin',
             'email' => 'admin@softui.com',
             'password' => Hash::make('secret'),
-            'created_at' => now(),
-            'updated_at' => now()
+            // 'created_at' => now(),
+            // 'updated_at' => now()
         ]);
     }
 }

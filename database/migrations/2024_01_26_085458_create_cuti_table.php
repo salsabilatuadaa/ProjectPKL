@@ -28,15 +28,6 @@ return new class extends Migration
         });
     }
 
-//     nip
-// jenis cuti (dropdown)
-// alasan cuti
-// tanggal mulai cuti
-// lamanya cuti
-// status pengajuan
-// tanggal pengajuan
-// tanggal diterima
-
     /**
      * Reverse the migrations.
      */
