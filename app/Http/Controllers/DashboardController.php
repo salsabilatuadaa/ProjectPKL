@@ -12,11 +12,11 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
 
-        if ($user->role === 'admin') {
+        if ($user->role === 1) {
             return view('admin.dashboard', compact('user'));
-        } else if ($user->role === 'atasan') {
+        } else if ($user->role === 2) {
             return view('atasan.dashboard', compact('user'));
-        } else if ($user->role === 'karyawan') {
+        } else if ($user->role === 3) {
             return view('karyawan.dashboard', compact('user'));
         } 
     }
