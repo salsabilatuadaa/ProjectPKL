@@ -29,8 +29,10 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('email')->unique()->index()->nullable();
             $table->string('password');
-            $table->string('role');
+            $table->unsignedBigInteger('role');
             $table->timestamps();
+
+            $table->foreign('role')->references('id')->on('jabatan');
         });
     }
 

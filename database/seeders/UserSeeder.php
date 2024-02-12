@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -15,13 +16,44 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'id' => 1,
-            'role' => 'admin',
-            'email' => 'admin@softui.com',
-            'password' => Hash::make('secret'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+        $user = [
+            [
+                'id' => 1,
+                'role' => 1,
+                'email' => 'admin@softui.com',
+                'password' => Hash::make('secret'),
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'id' => 2,
+                'role' => 2,
+                'email' => 'atasan@softui.com',
+                'password' => Hash::make('secret'),
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'id' => 3,
+                'role' => 3,
+                'email' => 'karyawan@softui.com',
+                'password' => Hash::make('secret'),
+                'created_at' => now(),
+                'updated_at' => now()
+            ]
+        ];
+       foreach($user as $users){
+        User::create($users);
+       }
+       
+    //     DB::table('users')->insert([
+    //         'id' => 1,
+    //         'role' => 1,
+    //         'email' => 'admin@softui.com',
+    //         'password' => Hash::make('secret'),
+    //         'created_at' => now(),
+    //         'updated_at' => now()
+    //     ],
+    // );
     }
 }
