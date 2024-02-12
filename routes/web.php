@@ -31,29 +31,33 @@ Route::group(['middleware' => 'auth'], function () {
 	// 	return view('dashboard');
 	// })->name('dashboard');
 
-	// Route::get('billing', function () {
-	// 	return view('billing');
-	// })->name('billing');
+	Route::get('riwayat-cuti', function () {
+		return view('riwayat-cuti');
+	})->name('riwayat-cuti');
 
 	// Route::get('profile', function () {
 	// 	return view('profile');
 	// })->name('profile');
 
-	// Route::get('rtl', function () {
-	// 	return view('rtl');
-	// })->name('rtl');
+	Route::get('list-user', function () {
+		return view('admin.list-user');
+	})->name('list-user');
 
 	// Route::get('user-management', function () {
 	// 	return view('laravel-examples/user-management');
 	// })->name('user-management');
 
-	// Route::get('tables', function () {
-	// 	return view('tables');
-	// })->name('tables');
+	Route::get('pengajuan-cuti', function () {
+		return view('pengajuan-cuti');
+	})->name('pengajuan-cuti');
 
-    // Route::get('virtual-reality', function () {
-	// 	return view('virtual-reality');
-	// })->name('virtual-reality');
+    Route::get('list-pengajuan-cuti', function () {
+		return view('admin.list-pengajuan-cuti');
+	})->name('list-pengajuan-cuti');
+
+	Route::get('list-pengajuan-cuti', function () {
+		return view('karyawan.list-pengajuan-cuti');
+	})->name('list-pengajuan-cuti');
 
     // Route::get('static-sign-in', function () {
 	// 	return view('static-sign-in');
