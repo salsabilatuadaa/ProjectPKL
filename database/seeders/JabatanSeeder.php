@@ -17,18 +17,24 @@ class JabatanSeeder extends Seeder
         $jabatan = [
             [
                 'id' => 1,
-                'nama_jabatan' => 'admin',
+                'nama_jabatan' => 'kepegawaian',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'id' => 2,
-                'nama_jabatan' => 'atasan',
+                'nama_jabatan' => 'admin',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'id' => 3,
+                'nama_jabatan' => 'atasan',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'id' => 4,
                 'nama_jabatan' => 'karyawan',
                 'created_at' => now(),
                 'updated_at' => now()
