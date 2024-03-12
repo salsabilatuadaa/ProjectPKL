@@ -2,7 +2,9 @@
 
 @section('content')
 
-  <div class="row">
+  <H3 class="text-sm mb-0 text-capitalize font-weight-bold">Dashboard Admin</H3>
+
+  <!-- <div class="row">
     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
       <div class="card">
         <div class="card-body p-3">
@@ -789,5 +791,5 @@
         },
       });
     }
-  </script>
+  </script> -->
 @endpush

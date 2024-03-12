@@ -55,7 +55,7 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('admin.list-pengajuan-cuti');
 	})->name('list-pengajuan-cuti');
 
-	Route::get('list-pengajuan-cuti', function () {
+	Route::get('karyawan-list-pengajuan-cuti', function () {
 		return view('karyawan.list-pengajuan-cuti');
 	})->name('list-pengajuan-cuti');
 
