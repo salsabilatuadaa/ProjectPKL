@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('cuti', function (Blueprint $table) {
             $table->id();
-            $table->string('jenis_cuti');
             $table->string('alasan_cuti');
             $table->date('tanggal_mulai');
             $table->integer('lamanya_cuti');
@@ -21,10 +20,12 @@ return new class extends Migration
             $table->date('tanggal_selesai');
             $table->unsignedBigInteger('karyawan_id');
             $table->unsignedBigInteger('status_id');
+            $table->unsignedBigInteger('jenis_cuti_id');
             $table->timestamps();
 
             $table->foreign('karyawan_id')->references('id')->on('karyawan');
             $table->foreign('status_id')->references('id')->on('status_pengajuan');
+            $table->foreign('jenis_cuti_id')->references('id')->on('jenis_cuti');
         });
     }
 
