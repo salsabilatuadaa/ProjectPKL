@@ -14,17 +14,15 @@ return new class extends Migration
         Schema::create('karyawan', function (Blueprint $table) {
             $table->id();
             $table->string('nip')->unique();
-            $table->string('nama');
+            $table->string('nama')->nullable();
             // $table->string('jabatan');
-            $table->string('lokasi_kerja');
-            $table->string('foto_profil');
+            $table->string('lokasi_kerja')->nullable();
+            $table->string('foto_profil')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('jabatan_id');
             $table->unsignedBigInteger('atasan_id')->nullable();
 
             $table->index('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('jabatan_id')->references('id')->on('jabatan');
             $table->foreign('atasan_id')->references('id')->on('atasan');
             $table->timestamps();
         });

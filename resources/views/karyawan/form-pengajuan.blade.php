@@ -8,20 +8,17 @@
                 <h1 class="m-0">Pengajuan</h1> <br>
 
                 <div class="content">
-                    <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
                             <h3 class="card-title">Data Cuti</h3>
                         </div>
-                        <!-- /.card-header -->
-                        <!-- form start -->
-                        <form action="/pengajuan-cuti" method="POST">
+                        <form action="{{ route('simpan-pengajuan') }}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="nip">NIP</label>
                                     <input type="text" name="nip" class="form-control" id="nim"
-                                        placeholder="Masukkan NIP" value="{{ old('nip') }}" required pattern="[0-9]">
+                                        placeholder="Masukkan NIP" value="{{ old('nip') }}" required>
                                     @error('nip')
                                         <div class="alert alert-danger">
                                             {{ $message }}
@@ -29,17 +26,12 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="jenis_cuti">Jenis Cuti </label>
+                                    <label for="jenis_cuti">Jenis Cuti</label>
                                     <select name="jenis_cuti" class="form-control" id="jenis_cuti" required>
                                         <option value="">--Pilih Jenis Cuti--</option>
-                                        <!-- <option value="Cuti Sakit">Cuti Sakit</option>
-                                        <option value="Cuti Besar">Cuti Besar</option>
-                                        <option value="Cuti Tahunan">Cuti Tahunan</option>
-                                        <option value="Cuti Alasan Penting">Cuti Alasan Penting</option>
-                                       -->
                                        @foreach($jenisCuti as $cuti)
-                                            <option value="{{ $cuti->id }}">
-                                            {{ $cuti->nama }}</option>
+                                            <option value="{{ $cuti->id }}" style="color: black;">
+                                            {{ $cuti->nama_cuti }}</option>
                                        @endforeach
                                     </select>
                                     @error('jenis_cuti')
@@ -50,8 +42,19 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="tanggal_cuti">Tanggal Diajukan Cuti</label>
-                                    <input type="date" name="tanggal_cuti" class="form-control" id="tanggal_cuti"
+                                    <label for="tanggal_cuti">Tanggal Pengajuan Cuti</label>
+                                    <input type="date" name="tanggal_mulai" class="form-control" id="tanggal_cuti"
+                                        value="{{ old('tanggal_cuti') }}" required>
+                                    @error('tanggal_cuti')
+                                        <div class="alert alert-danger">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="tanggal_cuti">Tanggal Selesai Cuti</label>
+                                    <input type="date" name="tanggal_selesai" class="form-control" id="tanggal_cuti"
                                         value="{{ old('tanggal_cuti') }}" required>
                                     @error('tanggal_cuti')
                                         <div class="alert alert-danger">
@@ -73,7 +76,7 @@
 
                                 <div class="form-group">
                                     <label for="keperluan_cuti">Keperluan Cuti</label>
-                                    <textarea name="keperluan_cuti" class="form-control" id="keperluan_cuti" rows="5" placeholder="Masukkan alasan atau keperluan cuti" required>{{ old('keperluan_cuti') }}</textarea>
+                                    <textarea name="alasan_cuti" class="form-control" id="keperluan_cuti" rows="5" placeholder="Masukkan alasan atau keperluan cuti" required>{{ old('keperluan_cuti') }}</textarea>
                                     @error('keperluan_cuti')
                                         <div class="alert alert-danger">
                                             {{ $message }}
@@ -90,66 +93,18 @@
                                         </div>
                                     @enderror
                                 </div>
-
-
-                                <!-- <div class="form-group">
-                                    <label for="nama">Tanggal DIajukan Cuti</label>
-                                    <input type="text" name="nama" class="form-control" id="nama"
-                                        placeholder="Masukkan Nama Lengkap" value="{{ old('nama') }}">
-                                    @error('nama')
-                                        <div class="alert alert-danger">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div> -->
-
-                                <!-- <div class="form-group">
-                                    <label for="angkatan">Angkatan</label>
-                                    <select name="angkatan" class="form-control" id="angkatan">
-                                        <option value="" selected disabled>-- Pilih Angkatan --</option>
-                                        
-                                    </select>
-                                    @error('angkatan')
-                                        <div class="alert alert-danger">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div> -->
-
-                                <!-- <div class="form-group">
-                                    <label for="status">Status</label>
-                                    <input type="text" name="status" class="form-control" id="status" value="Aktif"
-                                        disabled>
-                                </div> -->
-
-                                <!-- <div class="form-group">
-                                    <label for="dosen_wali">Dosen Wali</label>
-                                    <select name="dosen_wali" id="dosen_wali" class="form-control">
-                                        <option value="" selected disabled>-- Pilih Dosen Wali --</option>
-                                        
-                                    </select>
-                                    @error('dosen_wali')
-                                        <div class="alert alert-danger">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div> -->
                             </div>
-                            <!-- /.card-body -->
+       
 
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                                <!-- <a href="/operator/impor-excel" onclick="showFileUpload()" class="btn btn-success">Impor
-                                    dari Excel</a>
-                                <a href="/dashboard" class="btn btn-secondary ml-2">Back</a> -->
                             </div>
                         </form>
                     </div>
                 </div>
-                <!-- /.card -->
                 <br>
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+            </div>
+        </div>
     </div>
   
   @endsection
