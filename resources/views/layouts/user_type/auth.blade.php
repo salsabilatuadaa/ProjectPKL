@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<!-- @extends('layouts.app')
 
 @section('auth')
 
@@ -57,4 +57,4 @@
 
     
 
-@endsection
+@endsection -->

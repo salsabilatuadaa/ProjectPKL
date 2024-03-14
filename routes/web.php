@@ -4,6 +4,7 @@ use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InfoUserController;
+use App\Http\Controllers\PengajuanCutiKaryawanController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\SessionsController;
@@ -23,13 +24,42 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+
 Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('/dashboard', [DashboardController::class, 'home'])->name('dashboard');
-    // Route::get('/', [DashboardController::class, 'home']);
-	// Route::get('dashboard', function () {
-	// 	return view('dashboard');
-	// })->name('dashboard');
+    Route::get('/logout', [SessionsController::class, 'destroy']);
+
+	//kepegawaian
+	Route::middleware(['checkrole:1'])->group(function (){
+
+	});
+
+	//admin
+	Route::middleware(['checkrole:2'])->group(function (){
+		
+	});
+
+	//atasan
+	Route::middleware(['checkrole:3'])->group(function (){
+
+	});
+
+	//karyawan
+	Route::middleware(['checkrole:4'])->group(function (){
+		Route::get('/form-pengajuan', [PengajuanCutiKaryawanController::class, 'show'])->name('form-pengajuan');
+		Route::post('/form-pengajuan', [PengajuanCutiKaryawanController::class, 'store'])->name('simpan-pengajuan');
+
+		
+		Route::prefix('karyawan')->group(function () {
+			// Route::get('/pengajuan-cuti-karyawan', [PengajuanCutiKaryawanController::class, 'create'])->name('pengajuan-cuti-karyawan');
+			Route::get('/pengajuan-cuti-karyawan', [PengajuanCutiKaryawanController::class, 'showCuti'])->name('pengajuan-cuti-karyawan');			
+
+		});
+
+	});
+
+
 
 	Route::get('riwayat-cuti', function () {
 		return view('riwayat-cuti');
@@ -43,33 +73,21 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('admin.list-user');
 	})->name('list-user');
 
-	// Route::get('user-management', function () {
-	// 	return view('laravel-examples/user-management');
-	// })->name('user-management');
+	// Route::get('karyawan.pengajuan-cuti-karyawan', function () {
+	// 	return view('karyawan.pengajuan-cuti-karyawan');
+	// })->name('pengajuan-cuti-karyawan');
 
-	Route::get('pengajuan-cuti', function () {
-		return view('pengajuan-cuti');
-	})->name('pengajuan-cuti');
+    
 
-    Route::get('list-pengajuan-cuti', function () {
-		return view('admin.list-pengajuan-cuti');
-	})->name('list-pengajuan-cuti');
-
-	Route::get('list-pengajuan-cuti', function () {
+	Route::get('karyawan-list-pengajuan-cuti', function () {
 		return view('karyawan.list-pengajuan-cuti');
 	})->name('list-pengajuan-cuti');
 
-    // Route::get('static-sign-in', function () {
-	// 	return view('static-sign-in');
-	// })->name('sign-in');
 
-    // Route::get('static-sign-up', function () {
-	// 	return view('static-sign-up');
-	// })->name('sign-up');
-
-    Route::get('/logout', [SessionsController::class, 'destroy']);
-	Route::get('/user-profile', [InfoUserController::class, 'create']);
-	Route::post('/user-profile', [InfoUserController::class, 'store']);
+	
+    
+	// Route::get('/user-profile', [InfoUserController::class, 'create']);
+	// Route::post('/user-profile', [InfoUserController::class, 'store']);
     Route::get('/login', function () {
 		return view('dashboard');
 	})->name('sign-up');
@@ -78,15 +96,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 Route::group(['middleware' => 'guest'], function () {
-    Route::get('/register', [RegisterController::class, 'create']);
-    Route::post('/register', [RegisterController::class, 'store']);
     Route::get('/login', [SessionsController::class, 'create']);
     Route::post('/session', [SessionsController::class, 'store']);
-	Route::get('/login/forgot-password', [ResetController::class, 'create']);
-	Route::post('/forgot-password', [ResetController::class, 'sendEmail']);
-	Route::get('/reset-password/{token}', [ResetController::class, 'resetPass'])->name('password.reset');
-	Route::post('/reset-password', [ChangePasswordController::class, 'changePassword'])->name('password.update');
-
 });
 
 Route::get('/', function () {

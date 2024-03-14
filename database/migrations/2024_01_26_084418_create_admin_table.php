@@ -23,11 +23,9 @@ return new class extends Migration
             $table->string('lokasi_kerja');
             $table->string('foto_profil');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('jabatan_id');
 
             $table->index('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('jabatan_id')->references('id')->on('jabatan');
             $table->timestamps();
         });
     }
