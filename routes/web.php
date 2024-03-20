@@ -27,10 +27,14 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['middleware' => 'auth'], function () {
-
-	Route::get('/dashboard', [DashboardController::class, 'home'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'home'])->name('dashboard');
     Route::get('/logout', [SessionsController::class, 'destroy']);
 
+    Route::get('/user-profile', [InfoUserController::class, 'create'])->name('user-profile');
+    Route::post('/user-profile', [InfoUserController::class, 'store'])->name('simpan-profile');
+	
+	
+	
 	//kepegawaian
 	Route::middleware(['checkrole:1'])->group(function (){
 
@@ -57,7 +61,8 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('/pengajuan-cuti-karyawan', [PengajuanCutiKaryawanController::class, 'showCuti'])->name('pengajuan-cuti-karyawan');
 		Route::get('/edit-data-cuti/{id}', [PengajuanCutiKaryawanController::class, 'editDataCuti'])->name('edit-data-cuti');			
 		Route::post('/update-data-cuti/{id}', [PengajuanCutiKaryawanController::class, 'updateDataCuti'])->name('update-data-cuti');			
-		Route::get('/delete-data-cuti/{id}', [PengajuanCutiKaryawanController::class, 'deleteDataCuti'])->name('delete-data-cuti');			
+		Route::get('/delete-data-cuti/{id}', [PengajuanCutiKaryawanController::class, 'deleteDataCuti'])->name('delete-data-cuti');	
+		Route::get('/delete-data-cuti/{id}', [PengajuanCutiKaryawanController::class, 'deleteDataCuti'])->name('delete-data-cuti');	
 
 	});
 
