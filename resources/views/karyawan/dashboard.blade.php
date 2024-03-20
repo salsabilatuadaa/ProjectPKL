@@ -1,62 +1,49 @@
 <!-- @extends('layouts.user_type.auth') -->
 
 @section('content')
+  <div class="welcome">
+    <h3>Welcome, Karyawan!</h3>
+  </div>
 
   <div class="row">
-    <div class="col-xl-3 col-sm-5 mb-xl-0 mb-4">
-      <div class="card">
-        <div class="card-body p-4">
-          <div class="row">
-            <div class="col-9">
-              <div class="numbers">
-                <h5 class="text-xl text-capitalize font-weight-bold">Pengajuan Cuti Setahun Kebelakang</h5>
-              </div>
-            </div>
-            <div class="col-2 text-end">
-              <h2 class="font-weight-bolder"> 6 </h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+    <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
       <div class="card">
         <div class="card-body p-3">
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Users</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Sisa Cuti Tahunan</p>
                 <h5 class="font-weight-bolder mb-0">
-                  2,300
-                  <span class="text-success text-sm font-weight-bolder">+3%</span>
+                  12 
+                  <span class="text-success text-sm font-weight-bolder"></span>
                 </h5>
               </div>
             </div>
             <div class="col-4 text-end">
               <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                <i class="fa fa-users text-lg opacity-10" aria-hidden="true"></i>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div> -->
-    <!-- <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+    </div> 
+    <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
       <div class="card">
         <div class="card-body p-3">
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">New Clients</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">Cuti Disetujui</p>
                 <h5 class="font-weight-bolder mb-0">
-                  +3,462
-                  <span class="text-danger text-sm font-weight-bolder">-2%</span>
+                  0
+                  <span class="text-danger text-sm font-weight-bolder"></span>
                 </h5>
               </div>
             </div>
             <div class="col-4 text-end">
               <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                <i class="fa fa-thumbs-up text-lg opacity-10" aria-hidden="true"></i>
               </div>
             </div>
           </div>
@@ -69,23 +56,77 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Sales</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">Cuti Ditolak</p>
                 <h5 class="font-weight-bolder mb-0">
-                  $103,430
-                  <span class="text-success text-sm font-weight-bolder">+5%</span>
+                  0
+                  <span class="text-success text-sm font-weight-bolder"></span>
                 </h5>
               </div>
             </div>
             <div class="col-4 text-end">
               <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                <i class="fa fa-remove text-lg opacity-10" aria-hidden="true"></i>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div> -->
+    <div class="col-xl-3 col-sm-6">
+      <div class="card">
+        <div class="card-body p-3">
+          <div class="row">
+            <div class="col-8">
+              <div class="numbers">
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Pengajuan Cuti</p>
+                <h5 class="font-weight-bolder mb-0">
+                  0
+                  <span class="text-success text-sm font-weight-bolder"></span>
+                </h5>
+              </div>
+            </div>
+            <div class="col-4 text-end">
+              <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                <i class="fa fa-hourglass-end text-lg opacity-10" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+
+  <div class="content-wrapper">
+    <div class="content">
+        <div class="card card-primary">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3 class="card-title">Pengajuan</h3>
+                <a href="{{ route('form-pengajuan') }}" class="btn btn-primary btn-sm float-right">Ajukan Cuti</a>
+            </div>
+            <div class="card-body">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Tanggal Pengajuan</th>
+                            <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Nama</th>
+                            <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Tipe Cuti</th>
+                            <th class="px-4 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Tanggal Mulai</th>
+                            <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Tanggal Selesai</th>
+                            <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                            <th class="px-3 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+  </div>
 
 
   <!-- <div class="row mt-4">
@@ -134,20 +175,20 @@
   </div> -->
 
 
-  <div class="row mt-4">
+  <!-- <div class="row mt-4">
     <div class="col-lg-5 mb-lg-0 mb-4">
       <div class="card z-index-2">
         <div class="card-body p-3">
           
-          <!-- <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
+          <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
             <div class="chart">
               <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
             </div>
-          </div> -->
+          </div>
           <h5 class="ms-2 mb-0"> Selamat Datang di Sistem Cuti Karyawan </h5>
           <h5 class="ms-2 mt-4 mb-0">Ajukan Cuti<h5>
-          <!-- <p class="text-sm ms-2"> (<span class="font-weight-bolder">+23%</span>) than last week </p> -->
-          <div class="container border-radius-lg">
+          <p class="text-sm ms-2"> (<span class="font-weight-bolder">+23%</span>) than last week </p>
+          <div class="container border-radius-lg"> -->
             
             <!-- <div class="row">
               <div class="col-3 py-3 ps-0">
@@ -249,7 +290,7 @@
                   <div class="progress-bar bg-dark w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
               </div>
-            </div> -->
+            </div>
           </div>
         </div>
       </div>
@@ -258,10 +299,10 @@
       <div class="card z-index-2">
         <div class="card-header pb-0">
           <h5>Diagram Garis Pengajuan Cuti</h5>
-          <!-- <p class="text-sm">
+          <p class="text-sm">
             <i class="fa fa-arrow-up text-success"></i>
             <span class="font-weight-bold">4% more</span> in 2021
-          </p> -->
+          </p>
         </div>
         <div class="card-body p-3">
           <div class="chart">
@@ -273,7 +314,7 @@
   </div>
 
 
-  <!-- <div class="row my-4">
+  <div class="row my-4">
     <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
       <div class="card">
         <div class="card-header pb-0">
