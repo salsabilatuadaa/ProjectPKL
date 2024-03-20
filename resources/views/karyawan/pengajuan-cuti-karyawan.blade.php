@@ -47,10 +47,8 @@
                                                     return confirm("Are you sure you want to delete this data?");
                                                 }
                                             </script>
-
                                         </tr>
                                     @endforeach
-                                    
                                 </tbody>
                             </table>
                         </div>

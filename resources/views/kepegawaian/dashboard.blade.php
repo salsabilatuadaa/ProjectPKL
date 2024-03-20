@@ -1,7 +1,76 @@
-@extends('layouts.user_type.auth')
+<!-- @extends('layouts.user_type.auth') -->
 
 @section('content')
-
+  <div class="welcome">
+    <h3>Welcome, Kepegawaian!</h3>
+  </div>
+  <div class="row">
+    <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
+      <div class="card">
+        <div class="card-body p-3">
+          <div class="row">
+            <div class="col-7">
+              <div class="numbers">
+                <p class="text-lg mb-0">Selamat Datang di <span class="font-weight-bold">Sistem Cuti Karyawan!</span></p>
+              </div>
+            </div>
+            <div class="col-5 d-flex align-items-center justify-content-end">
+              <a href="{{ route('form-pengajuan') }}" class="btn btn-primary btn-sm font-weight-bold" style="font-size: 15px;">Ajukan Cuti</a>
+            </div>            
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--<div class="col-lg-7 mb-lg-0 mb-4">
+      <div class="card">
+        <div class="card-body p-3">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="d-flex flex-column h-100">
+                <p class="mb-1 pt-2 text-bold">Selamat Datang di</p>
+                <h5 class="font-weight-bolder">Sistem Cuti Karyawan!</h5>
+                <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                  Ajukan Cuti
+                  <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
+              <div class="bg-gradient-primary border-radius-lg h-100">
+                <img src="../assets/img/shapes/waves-white.svg" class="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves">
+                <div class="position-relative d-flex align-items-center justify-content-center h-100">
+                  <img class="w-100 position-relative z-index-2 pt-4" src="../assets/img/illustrations/rocket-white.png" alt="rocket">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->     
+    <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+      <div class="card">
+        <div class="card-body p-3">
+          <div class="row">
+            <div class="col-8">
+              <div class="numbers">
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Sisa Cuti Tahunan</p>
+                <h5 class="font-weight-bolder mb-0">
+                  12 
+                  <span class="text-success text-sm font-weight-bolder"></span>
+                </h5>
+              </div>
+            </div>
+            <div class="col-4 text-end">
+              <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                <i class="fa fa-users text-lg opacity-10" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+  <br>
   <div class="row">
     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
       <div class="card">
@@ -9,16 +78,16 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Kepegawaian Money</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">Pengajuan Cuti Karyawan</p>
                 <h5 class="font-weight-bolder mb-0">
-                  $53,000
-                  <span class="text-success text-sm font-weight-bolder">+55%</span>
+                  0
+                  <span class="text-danger text-sm font-weight-bolder"></span>
                 </h5>
               </div>
             </div>
             <div class="col-4 text-end">
               <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                <i class="fa fa-file text-lg opacity-10" aria-hidden="true"></i>
               </div>
             </div>
           </div>
@@ -31,38 +100,16 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Users</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">Cuti Disetujui</p>
                 <h5 class="font-weight-bolder mb-0">
-                  2,300
-                  <span class="text-success text-sm font-weight-bolder">+3%</span>
+                  0
+                  <span class="text-danger text-sm font-weight-bolder"></span>
                 </h5>
               </div>
             </div>
             <div class="col-4 text-end">
               <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-      <div class="card">
-        <div class="card-body p-3">
-          <div class="row">
-            <div class="col-8">
-              <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">New Clients</p>
-                <h5 class="font-weight-bolder mb-0">
-                  +3,462
-                  <span class="text-danger text-sm font-weight-bolder">-2%</span>
-                </h5>
-              </div>
-            </div>
-            <div class="col-4 text-end">
-              <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                <i class="fa fa-thumbs-up text-lg opacity-10" aria-hidden="true"></i>
               </div>
             </div>
           </div>
@@ -75,16 +122,38 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Sales</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">Cuti Ditolak</p>
                 <h5 class="font-weight-bolder mb-0">
-                  $103,430
-                  <span class="text-success text-sm font-weight-bolder">+5%</span>
+                  0
+                  <span class="text-success text-sm font-weight-bolder"></span>
                 </h5>
               </div>
             </div>
             <div class="col-4 text-end">
               <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                <i class="fa fa-remove text-lg opacity-10" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6">
+      <div class="card">
+        <div class="card-body p-3">
+          <div class="row">
+            <div class="col-8">
+              <div class="numbers">
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Pengajuan Cuti</p>
+                <h5 class="font-weight-bolder mb-0">
+                  0
+                  <span class="text-success text-sm font-weight-bolder"></span>
+                </h5>
+              </div>
+            </div>
+            <div class="col-4 text-end">
+              <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                <i class="fa fa-hourglass-end text-lg opacity-10" aria-hidden="true"></i>
               </div>
             </div>
           </div>
@@ -92,7 +161,38 @@
       </div>
     </div>
   </div>
-  <div class="row mt-4">
+  <br>
+  <div class="content-wrapper">
+    <div class="content">
+        <div class="card card-primary">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3 class="card-title">Status Pengajuan Cuti</h3>
+            </div>
+            <div class="card-body">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Tanggal Pengajuan</th>
+                            <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Nama</th>
+                            <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Tipe Cuti</th>
+                            <th class="px-4 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Tanggal Mulai</th>
+                            <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Tanggal Selesai</th>
+                            <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+  </div>
+
+
+  <!-- <div class="row mt-4">
     <div class="col-lg-7 mb-lg-0 mb-4">
       <div class="card">
         <div class="card-body p-3">
@@ -135,20 +235,25 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="row mt-4">
+  </div> -->
+
+
+  <!-- <div class="row mt-4">
     <div class="col-lg-5 mb-lg-0 mb-4">
       <div class="card z-index-2">
         <div class="card-body p-3">
+          
           <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
             <div class="chart">
               <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
             </div>
           </div>
-          <h6 class="ms-2 mt-4 mb-0"> Active Users </h6>
+          <h5 class="ms-2 mb-0"> Selamat Datang di Sistem Cuti Karyawan </h5>
+          <h5 class="ms-2 mt-4 mb-0">Ajukan Cuti<h5>
           <p class="text-sm ms-2"> (<span class="font-weight-bolder">+23%</span>) than last week </p>
-          <div class="container border-radius-lg">
-            <div class="row">
+          <div class="container border-radius-lg"> -->
+            
+            <!-- <div class="row">
               <div class="col-3 py-3 ps-0">
                 <div class="d-flex mb-2">
                   <div class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-primary text-center me-2 d-flex align-items-center justify-content-center">
@@ -256,7 +361,7 @@
     <div class="col-lg-7">
       <div class="card z-index-2">
         <div class="card-header pb-0">
-          <h6>Sales overview</h6>
+          <h5>Diagram Garis Pengajuan Cuti</h5>
           <p class="text-sm">
             <i class="fa fa-arrow-up text-success"></i>
             <span class="font-weight-bold">4% more</span> in 2021
@@ -270,6 +375,8 @@
       </div>
     </div>
   </div>
+
+
   <div class="row my-4">
     <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
       <div class="card">
@@ -614,11 +721,14 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+
+
 
 @endsection
+
 @push('dashboard')
-  <script>
+  <!-- <script>
     window.onload = function() {
       var ctx = document.getElementById("chart-bars").getContext("2d");
 
@@ -789,5 +899,6 @@
         },
       });
     }
-  </script>
+  </script> -->
+
 @endpush
