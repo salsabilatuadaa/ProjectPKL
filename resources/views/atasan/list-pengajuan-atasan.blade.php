@@ -35,7 +35,7 @@
                                             <td class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">{{ $cuti->jenisCuti->nama_cuti }}</td>
                                             <td class="px-4 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">{{ $cuti->tanggal_mulai }}</td>
                                             <td class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">{{ $cuti->tanggal_selesai }}</td>
-                                            <td class="px-3 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">{{ $cuti->status->status}}</td>
+                                            <td class="px-3 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">{{ $cuti->statusAtasan->status}}</td>
                                             <th class="py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
                                                 <a href="/edit-data-cuti/{{ $cuti->id }}" class="btn btn-info btn-sm float-right">Detail</a>
                                             </th>

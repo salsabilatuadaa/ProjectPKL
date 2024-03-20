@@ -16,14 +16,19 @@ class Cuti extends Model
         return $this->belongsTo(JenisCuti::class, 'jenis_cuti_id');
     }
 
-    public function status()
+    public function statusAtasan()
+    {
+        return $this->belongsTo(StatusPengajuan::class, 'status_atasan');
+    }
+
+    public function statusHR()
     {
         return $this->belongsTo(StatusPengajuan::class, 'status_id');
     }
 
     public function karyawan()
     {
-        return $this->belongsTo(Karyawan::class, 'karyawan_id');
+        return $this->belongsTo(Karyawan::class, 'karyawan_id', 'id');
     }
 }
 

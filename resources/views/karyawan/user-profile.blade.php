@@ -48,7 +48,7 @@
                         <div>
                             <label for="nip" class="form-control-label">NIP</label>
                             <div class="@error('nip')border border-danger rounded-3 @enderror">
-                                <input class="form-control" value="" type="text" placeholder="NIP" id="nip" name="nip">
+                                <input class="form-control" value="" type="text" placeholder="NIP" id="nip" name="nip" required>
                                     @error('nip')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror
@@ -57,7 +57,7 @@
                         <div>
                             <label for="name" class="form-control-label">Full Name</label>
                             <div class="@error('name')border border-danger rounded-3 @enderror">
-                                <input class="form-control" value="" type="text" placeholder="Name" id="nama" name="nama">
+                                <input class="form-control" value="" type="text" placeholder="Name" id="nama" name="nama" required>
                                     @error('nama')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror
@@ -66,7 +66,7 @@
                         <div>
                             <label for="email" class="form-control-label">Email</label>
                             <div class="@error('email')border border-danger rounded-3 @enderror">
-                                <input class="form-control" value="{{ auth()->user()->email }}" type="email" placeholder="@example.com" id="email" name="email">
+                                <input class="form-control" value="{{ auth()->user()->email }}" type="email" placeholder="@example.com" id="email" name="email" required disabled>
                                     @error('email')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror
@@ -76,7 +76,7 @@
                         <div>
                             <label for="role" class="form-control-label">Role</label>
                             <div class="@error('role')border border-danger rounded-3 @enderror">
-                                <select class="form-control" type="role" id="role" name="role">
+                                <select class="form-control" type="role" id="role" name="role" required disabled>
                                     <option value="">--Pilih Role--</option>
                                         @foreach($role as $jabatan)
                                             <option value="{{ $jabatan->id }}" style="color: black;" {{ $jabatan->id == $user->role ? 'selected' : '' }}>
@@ -91,9 +91,26 @@
                         </div>
 
                         <div>
+                            <label for="atasan_id" class="form-control-label">Atasan</label>
+                            <div class="@error('atasan_id')border border-danger rounded-3 @enderror">
+                                <select class="form-control" type="atasan_id" id="atasan_id" name="atasan_id" required>
+                                    <option value="">--Pilih Atasan--</option>
+                                        @foreach($atasan as $ats)
+                                            <option value="{{ $ats->id }}" style="color: black;" {{ $ats->id == $user->user_id ? 'selected' : '' }}>
+                                            {{ $ats->nama }}</option>
+                                       @endforeach
+                                </select>
+
+                                @error('atasan_id')
+                                    <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div>
                             <label for="lokasi_kerja" class="form-control-label">Lokasi Kerja</label>
                             <div class="@error('lokasi_kerja')border border-danger rounded-3 @enderror">
-                                <input class="form-control" value="" type="lokasi" id="lokasi_kerja" name="lokasi_kerja">
+                                <input class="form-control" value="" type="lokasi" id="lokasi_kerja" name="lokasi_kerja" required>
                                     @error('lokasi')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror

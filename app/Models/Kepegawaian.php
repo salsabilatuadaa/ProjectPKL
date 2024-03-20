@@ -9,6 +9,7 @@ class Kepegawaian extends Model
 {
     protected $primaryKey = "id";
     protected $table = "kepegawaian";
+    protected $guarded = [];
 
     public function user()
     {

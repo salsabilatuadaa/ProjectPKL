@@ -48,9 +48,10 @@ Route::group(['middleware' => 'auth'], function () {
 	//atasan
 	Route::middleware(['checkrole:3'])->group(function (){
 		Route::get('/list-pengajuan-cuti', [ListPengajuanCutiAtasanController::class, 'showPengajuan'])->name('list-pengajuan-cuti');
-		Route::get('/list-pengajuan-cuti', [ListPengajuanCutiAtasanController::class, 'showPengajuan'])->name('list-pengajuan-cuti');
 		Route::get('/setujui-pengajuan/{id}', [ListPengajuanCutiAtasanController::class, 'setujuiPengajuan']);
 		Route::get('/tolak-pengajuan/{id}', [ListPengajuanCutiAtasanController::class, 'tolakPengajuan']);
+		Route::get('/riwayat-verifikasi', [ListPengajuanCutiAtasanController::class, 'showList'])->name('riwayat-verifikasi-atasan');
+
 
 	});
 
@@ -63,6 +64,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::post('/update-data-cuti/{id}', [PengajuanCutiKaryawanController::class, 'updateDataCuti'])->name('update-data-cuti');			
 		Route::get('/delete-data-cuti/{id}', [PengajuanCutiKaryawanController::class, 'deleteDataCuti'])->name('delete-data-cuti');	
 		Route::get('/delete-data-cuti/{id}', [PengajuanCutiKaryawanController::class, 'deleteDataCuti'])->name('delete-data-cuti');	
+		Route::get('/riwayat-cuti-karyawan', [PengajuanCutiKaryawanController::class, 'showRiwayat'])->name('riwayat-cuti-karyawan');
 
 	});
 

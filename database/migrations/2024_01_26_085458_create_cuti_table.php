@@ -21,6 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('karyawan_id');
             $table->unsignedBigInteger('atasan_id');
             $table->unsignedBigInteger('status_id')->default(3);
+            $table->unsignedBigInteger('status_atasan')->default(3);
             $table->unsignedBigInteger('jenis_cuti_id');
             $table->timestamps();
 
@@ -28,6 +29,7 @@ return new class extends Migration
             $table->foreign('atasan_id')->references('id')->on('atasan');
             $table->foreign('karyawan_id')->references('id')->on('karyawan');
             $table->foreign('status_id')->references('id')->on('status_pengajuan');
+            $table->foreign('status_atasan')->references('id')->on('status_pengajuan');
             $table->foreign('jenis_cuti_id')->references('id')->on('jenis_cuti');
         });
     }

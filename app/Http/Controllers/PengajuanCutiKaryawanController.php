@@ -27,14 +27,39 @@ class PengajuanCutiKaryawanController extends Controller
     public function showCuti()
     {
         $userId = Auth::id();
+        $karyawan = Karyawan::where('user_id', $userId)->first();
+        
 
-        $cuti = Cuti::where('karyawan_id', $userId)->get();
+        if ($karyawan) {
 
-        return view('karyawan.pengajuan-cuti-karyawan', compact('cuti'));
+            $karyawanId = $karyawan->id;
+            $cuti = Cuti::where('karyawan_id', $karyawanId)
+                    ->where('status_id', '3')
+                    ->get();
+
+            return view('karyawan.pengajuan-cuti-karyawan', compact('cuti'));
+        }
+    }
+
+    public function showRiwayat()
+    {
+        $userId = Auth::id();
+        $karyawan = Karyawan::where('user_id', $userId)->first();
+
+        if ($karyawan) {
+
+            $karyawanId = $karyawan->id;
+            $cuti = Cuti::where('karyawan_id', $karyawanId)
+                    ->where('status_id', '!=', 3)
+                    ->get();
+        
+            return view('karyawan.riwayat-cuti-karyawan', compact('cuti'));
+        }
     }
 
     public function store(Request $request)
     {
+
         $data = $request->all();
 
         $user = $request->user();
@@ -47,11 +72,12 @@ class PengajuanCutiKaryawanController extends Controller
             'jenis_cuti_id' => $data['jenis_cuti_id'],
             'tanggal_selesai' => $data['tanggal_selesai'],
             'lamanya_cuti' => $data['lamanya_cuti'],
-            'karyawan_id' => $user->id,
+            'karyawan_id' => $karyawan->id,
             'atasan_id' => $karyawan->atasan_id
             // 'file_persyaratan' => $data[]
         ]);
 
+        
         return redirect()->route('pengajuan-cuti-karyawan');
     }
 

@@ -9,6 +9,7 @@ class Karyawan extends Model
 {
     protected $primaryKey = "id";
     protected $table = "karyawan";
+    protected $guarded = [];
 
     public function user()
     {

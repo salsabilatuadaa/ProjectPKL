@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
             StatusPengajuanSeeder::class,
             JenisCutiSeeder::class,
             UserSeeder::class,
-            DataAtasanSeeder::class,
-            DataKaryawanSeeder::class,
+            // DataAtasanSeeder::class,
+            // DataKaryawanSeeder::class,
         ]);
     }
 }

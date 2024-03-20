@@ -9,6 +9,7 @@ class Atasan extends Model
 {
     protected $primaryKey = "id";
     protected $table = "atasan";
+    protected $guarded = [];
 
     public function user()
     {

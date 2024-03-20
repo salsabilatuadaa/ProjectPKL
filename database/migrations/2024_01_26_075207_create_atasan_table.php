@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('atasan', function (Blueprint $table) {
             $table->id();
             $table->string('nip')->unique();
-            $table->string('nama')->nullable();
+            $table->string('nama');
             // $table->string('jabatan');
-            $table->string('lokasi_kerja')->nullable();
+            $table->string('lokasi_kerja');
             $table->string('foto_profil')->nullable();
             $table->unsignedBigInteger('user_id');
      

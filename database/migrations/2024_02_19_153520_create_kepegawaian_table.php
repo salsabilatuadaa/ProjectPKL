@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nip')->unique();
             $table->string('nama');
             $table->string('lokasi_kerja');
-            $table->string('foto_profil');
+            // $table->string('foto_profil');
             $table->unsignedBigInteger('user_id');
 
             $table->index('user_id');

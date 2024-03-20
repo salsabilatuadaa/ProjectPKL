@@ -33,7 +33,7 @@ class InfoUserController extends Controller
         } else if ($user->role === 3) {
             return view('atasan.user-profile', compact('user', 'role', 'atasan'));
         } else if ($user->role === 4) {
-            return view('karyawan.user-profile', compact('user', 'role', 'karyawan'));
+            return view('karyawan.user-profile', compact('user', 'role', 'karyawan', 'atasan'));
         } 
     }
 
@@ -76,6 +76,7 @@ class InfoUserController extends Controller
                 'nip' => $data['nip'],
                 'nama' => $data['nama'],
                 'lokasi_kerja' => $data['lokasi_kerja'],
+                'atasan_id'=> $data['atasan_id'],
                 'user_id' => $user->id
                 
             ]);
