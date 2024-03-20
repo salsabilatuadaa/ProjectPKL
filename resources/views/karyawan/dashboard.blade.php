@@ -4,8 +4,23 @@
   <div class="welcome">
     <h3>Welcome, Karyawan!</h3>
   </div>
-
   <div class="row">
+    <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
+      <div class="card">
+        <div class="card-body p-3">
+          <div class="row">
+            <div class="col-7">
+              <div class="numbers">
+                <p class="text-lg mb-0">Selamat Datang di <span class="font-weight-bold">Sistem Cuti Karyawan!</span></p>
+              </div>
+            </div>
+            <div class="col-5 d-flex align-items-center justify-content-end">
+              <a href="{{ route('form-pengajuan') }}" class="btn btn-primary btn-sm font-weight-bold" style="font-size: 15px;">Ajukan Cuti</a>
+            </div>            
+          </div>
+        </div>
+      </div>
+    </div>      
     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
       <div class="card">
         <div class="card-body p-3">
@@ -28,6 +43,9 @@
         </div>
       </div>
     </div> 
+  </div>
+  <br>
+  <div class="row">
     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
       <div class="card">
         <div class="card-body p-3">
@@ -95,14 +113,12 @@
       </div>
     </div>
   </div>
-  <br><br>
-
+  <br>
   <div class="content-wrapper">
     <div class="content">
         <div class="card card-primary">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h3 class="card-title">Pengajuan</h3>
-                <a href="{{ route('form-pengajuan') }}" class="btn btn-primary btn-sm float-right">Ajukan Cuti</a>
+                <h3 class="card-title">Status Pengajuan Cuti</h3>
             </div>
             <div class="card-body">
                 <table class="min-w-full divide-y divide-gray-200">
