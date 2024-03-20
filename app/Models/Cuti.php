@@ -20,5 +20,10 @@ class Cuti extends Model
     {
         return $this->belongsTo(StatusPengajuan::class, 'status_id');
     }
+
+    public function karyawan()
+    {
+        return $this->belongsTo(Karyawan::class, 'karyawan_id');
+    }
 }
 

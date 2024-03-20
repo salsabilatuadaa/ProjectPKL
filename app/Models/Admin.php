@@ -9,6 +9,7 @@ class Admin extends Model
 {
     protected $primaryKey = "id";
     protected $table = "admin";
+    protected $guarded = [];
 
     public function user()
     {
