@@ -4,6 +4,7 @@ use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InfoUserController;
+use App\Http\Controllers\ListPengajuanCutiAtasanController;
 use App\Http\Controllers\PengajuanCutiKaryawanController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetController;
@@ -42,6 +43,10 @@ Route::group(['middleware' => 'auth'], function () {
 
 	//atasan
 	Route::middleware(['checkrole:3'])->group(function (){
+		Route::get('/list-pengajuan-cuti', [ListPengajuanCutiAtasanController::class, 'showPengajuan'])->name('list-pengajuan-cuti');
+		Route::get('/list-pengajuan-cuti', [ListPengajuanCutiAtasanController::class, 'showPengajuan'])->name('list-pengajuan-cuti');
+		Route::get('/setujui-pengajuan/{id}', [ListPengajuanCutiAtasanController::class, 'setujuiPengajuan']);
+		Route::get('/tolak-pengajuan/{id}', [ListPengajuanCutiAtasanController::class, 'tolakPengajuan']);
 
 	});
 
@@ -49,13 +54,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::middleware(['checkrole:4'])->group(function (){
 		Route::get('/form-pengajuan', [PengajuanCutiKaryawanController::class, 'show'])->name('form-pengajuan');
 		Route::post('/form-pengajuan', [PengajuanCutiKaryawanController::class, 'store'])->name('simpan-pengajuan');
-
-		
-		Route::prefix('karyawan')->group(function () {
-			// Route::get('/pengajuan-cuti-karyawan', [PengajuanCutiKaryawanController::class, 'create'])->name('pengajuan-cuti-karyawan');
-			Route::get('/pengajuan-cuti-karyawan', [PengajuanCutiKaryawanController::class, 'showCuti'])->name('pengajuan-cuti-karyawan');			
-
-		});
+		Route::get('/pengajuan-cuti-karyawan', [PengajuanCutiKaryawanController::class, 'showCuti'])->name('pengajuan-cuti-karyawan');
+		Route::get('/edit-data-cuti/{id}', [PengajuanCutiKaryawanController::class, 'editDataCuti'])->name('edit-data-cuti');			
+		Route::post('/update-data-cuti/{id}', [PengajuanCutiKaryawanController::class, 'updateDataCuti'])->name('update-data-cuti');			
+		Route::get('/delete-data-cuti/{id}', [PengajuanCutiKaryawanController::class, 'deleteDataCuti'])->name('delete-data-cuti');			
 
 	});
 

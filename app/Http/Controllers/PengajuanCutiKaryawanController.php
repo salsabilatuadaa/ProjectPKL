@@ -44,12 +44,38 @@ class PengajuanCutiKaryawanController extends Controller
         Cuti::create([
             'alasan_cuti' => $data['alasan_cuti'],
             'tanggal_mulai' => $data['tanggal_mulai'],
-            'jenis_cuti_id' => $data['jenis_cuti'],
+            'jenis_cuti_id' => $data['jenis_cuti_id'],
             'tanggal_selesai' => $data['tanggal_selesai'],
             'lamanya_cuti' => $data['lamanya_cuti'],
             'karyawan_id' => $user->id,
             'atasan_id' => $karyawan->atasan_id
+            // 'file_persyaratan' => $data[]
         ]);
+
+        return redirect()->route('pengajuan-cuti-karyawan');
+    }
+
+    public function editDataCuti($id){
+        
+        $dataCuti = Cuti::find($id);
+
+        $jenisCuti = JenisCuti::all();
+
+        return view('karyawan.form-edit-pengajuan', compact('dataCuti', 'jenisCuti'));
+    }
+
+    public function updateDataCuti(Request $request, $id){
+        $dataCuti = Cuti::find($id);
+        $dataCuti->update($request->all());
+
+        return redirect()->route('pengajuan-cuti-karyawan')->with('success', 'Data Berhasil di Update');
+
+    }
+
+    public function deleteDataCuti($id){
+
+        $dataCuti = Cuti::find($id);
+        $dataCuti->delete();
 
         return redirect()->route('pengajuan-cuti-karyawan');
     }
