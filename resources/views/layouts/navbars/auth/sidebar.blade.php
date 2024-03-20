@@ -185,7 +185,7 @@
 
 
 
-      <li class="nav-item mt-2">
+      <!-- <li class="nav-item mt-2">
         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Other</h6>
       </li>
       <li class="nav-item">
@@ -208,7 +208,7 @@
             </div>
             <span class="nav-link-text ms-1">User Profile</span>
         </a>
-      </li>
+      </li> -->
       <!-- <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('user-management') ? 'active' : '') }}" href="{{ url('user-management') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -218,7 +218,7 @@
         </a>
       </li> -->
       
-      <li class="nav-item mt-2">
+      <!-- <li class="nav-item mt-2">
         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Menu</h6>
       </li>
 
@@ -341,7 +341,7 @@
           <span class="nav-link-text ms-1">List Pengajuan Cuti</span>
         </a>
       </li>
-      @endif
+      @endif -->
 
       <!-- <li class="nav-item">
         <a class="nav-link  " href="{{ url('static-sign-in') }}">
