@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InfoUserController;
 use App\Http\Controllers\ListPengajuanCutiAtasanController;
+use App\Http\Controllers\ListPengajuanCutiHRController;
 use App\Http\Controllers\PengajuanCutiKaryawanController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetController;
@@ -37,6 +38,11 @@ Route::group(['middleware' => 'auth'], function () {
 	
 	//kepegawaian
 	Route::middleware(['checkrole:1'])->group(function (){
+		Route::get('/list-pengajuan-cuti-hr', [ListPengajuanCutiHRController::class, 'showPengajuanHR'])->name('list-pengajuan-cuti-hr');
+		Route::get('/setujui-pengajuan-hr/{id}', [ListPengajuanCutiHRController::class, 'setujuiPengajuanHR']);
+		Route::get('/tolak-pengajuan-hr/{id}', [ListPengajuanCutiHRController::class, 'tolakPengajuanHR']);
+		Route::get('/riwayat-verifikasi-hr', [ListPengajuanCutiHRController::class, 'showListHR'])->name('riwayat-verifikasi-hr');
+
 
 	});
 
