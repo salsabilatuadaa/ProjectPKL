@@ -84,6 +84,76 @@ class InfoUserController extends Controller
         }
 
     }
+    
+
+    public function editDataUser()
+    {
+        $user = Auth::user();
+        $role = Jabatan::all();
+
+        $admin = Admin::all();
+        $karyawan = Karyawan::all();
+        $atasan = Atasan::all();
+        $kepegawaian = Kepegawaian::all();
+
+        if ($user->role === 1) {
+            return view('kepegawaian.edit-profile', compact('user', 'role', 'kepegawaian'));
+        }else if($user->role === 2){
+            return view('admin.edit-profile', compact('user', 'role', 'admin'));
+        } else if ($user->role === 3) {
+            return view('atasan.edit-profile', compact('user', 'role', 'atasan'));
+        } else if ($user->role === 4) {
+            return view('karyawan.edit-profile', compact('user', 'role', 'karyawan', 'atasan'));
+        } 
+    }
+
+    public function updateDataUser(Request $request, $id)
+    {
+        $user = Auth::user();
+
+        switch ($user->role) {
+            case 1:
+                $model = Kepegawaian::find($id); 
+                break;
+            case 2:
+                $model = Admin::find($id);
+                break;
+            case 3:
+                $model = Atasan::find($id);
+                break;
+            case 4:
+                $model = Karyawan::find($id);
+                break;
+            default:
+                return redirect()->back()->with('error', 'Peran pengguna tidak valid.');
+        }
+
+        $model->update($request->all());
+
+
+        return redirect()->route('user-profile')->with('success', 'Data berhasil diperbarui.');
+    }
+
+    // public function updateDataUser(Request $request, $id){
+
+    //     $user = Auth::user();
+    //     $role = Jabatan::all();
+
+    //     $admin = Admin::find($id);
+    //     $karyawan = Karyawan::find($id);
+    //     $atasan = Atasan::find($id);
+    //     $kepegawaian = Kepegawaian::find($id);
+
+    //     $admin->update($request->all());
+    //     $karyawan->update($request->all());
+    //     $atasan->update($request->all());
+    //     $kepegawaian->update($request->all());
+
+    //     return redirect()->route('user-profile')->with('success', 'Data Berhasil di Update');
+
+    // }
+
+
 
     public function update(Request $request)
     {

@@ -22,4 +22,20 @@ class DashboardController extends Controller
             return view('karyawan.dashboard', compact('user'));
         } 
     }
+
+    // public function sisaCuti()
+    // {
+    //     $tahunSekarang = now()->year;
+
+    //     $maksimalCuti = 12;
+
+    //     $totalCutiDiambil = Cuti::where('user_id', auth()->id())
+    //         ->whereYear('created_at', $tahunSekarang)
+    //         ->sum('lamanya_cuti');
+
+    //     $sisaCuti = $maksimalCuti - $totalCutiDiambil;
+
+    //     return view('karyawan.dashboard', compact('sisaCuti'));
+
+    // }
 }

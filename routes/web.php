@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardKaryawanController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InfoUserController;
 use App\Http\Controllers\ListPengajuanCutiAtasanController;
@@ -33,6 +34,13 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/user-profile', [InfoUserController::class, 'create'])->name('user-profile');
     Route::post('/user-profile', [InfoUserController::class, 'store'])->name('simpan-profile');
+	Route::get('/edit-profile', [InfoUserController::class, 'editDataUser'])->name('edit-data-user');	
+	Route::post('/update-profile/{id}', [InfoUserController::class, 'updateDataUser'])->name('update-data-user');
+	
+    Route::get('/dashboard', [DashboardKaryawanController::class, 'sisaCuti'])->name('dashboard');
+	
+
+
 	
 	
 	

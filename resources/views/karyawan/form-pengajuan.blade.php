@@ -15,16 +15,6 @@
                         <form action="{{ route('simpan-pengajuan') }}" method="POST">
                             @csrf
                             <div class="card-body">
-                                <!-- <div class="form-group">
-                                    <label for="nip">NIP</label>
-                                    <input type="text" name="nip" class="form-control" id="nim"
-                                        placeholder="Masukkan NIP" value="{{ old('nip') }}" required>
-                                    @error('nip')
-                                        <div class="alert alert-danger">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div> -->
                                 <div class="form-group">
                                     <label for="jenis_cuti_id">Jenis Cuti</label>
                                     <select name="jenis_cuti_id" class="form-control" id="jenis_cuti_id" required>
@@ -43,7 +33,7 @@
 
                                 <div class="form-group">
                                     <label for="tanggal_cuti">Tanggal Pengajuan Cuti</label>
-                                    <input type="date" name="tanggal_mulai" class="form-control" id="tanggal_cuti"
+                                    <input type="date" name="tanggal_mulai" class="form-control" id="taggal_mulai"
                                         value="{{ old('tanggal_cuti') }}" required>
                                     @error('tanggal_cuti')
                                         <div class="alert alert-danger">
@@ -54,7 +44,7 @@
 
                                 <div class="form-group">
                                     <label for="tanggal_cuti">Tanggal Selesai Cuti</label>
-                                    <input type="date" name="tanggal_selesai" class="form-control" id="tanggal_cuti"
+                                    <input type="date" name="tanggal_selesai" class="form-control" id="tanggal_selesai"
                                         value="{{ old('tanggal_cuti') }}" required>
                                     @error('tanggal_cuti')
                                         <div class="alert alert-danger">
@@ -65,14 +55,14 @@
 
                                 <div class="form-group">
                                     <label for="lamanya_cuti">Lamanya Cuti (dalam hari)</label>
-                                    <input type="number" name="lamanya_cuti" class="form-control" id="lamanya_cuti"
-                                        placeholder="Masukkan lamanya cuti dalam hari" value="{{ old('lamanya_cuti') }}" required>
+                                    <input type="number" name="lamanya_cuti" class="form-control" id="lamanya_cuti" placeholder="Masukkan lamanya cuti dalam hari" value="" required>
                                     @error('lamanya_cuti')
                                         <div class="alert alert-danger">
                                             {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
+
 
                                 <div class="form-group">
                                     <label for="keperluan_cuti">Keperluan Cuti</label>
@@ -106,5 +96,6 @@
             </div>
         </div>
     </div>
+
   
   @endsection
