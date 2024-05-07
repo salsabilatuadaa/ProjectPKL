@@ -3,6 +3,9 @@
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardKaryawanController;
+use App\Http\Controllers\DashboardKepegawaianController;
+use App\Http\Controllers\DashboardAtasanController;
+use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InfoUserController;
 use App\Http\Controllers\ListPengajuanCutiAtasanController;
@@ -36,12 +39,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/user-profile', [InfoUserController::class, 'store'])->name('simpan-profile');
 	Route::get('/edit-profile', [InfoUserController::class, 'editDataUser'])->name('edit-data-user');	
 	Route::post('/update-profile/{id}', [InfoUserController::class, 'updateDataUser'])->name('update-data-user');
-	
-    Route::get('/dashboard', [DashboardKaryawanController::class, 'sisaCuti'])->name('dashboard');
-	
 
 
-	
 	
 	
 	//kepegawaian
@@ -56,6 +55,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 	//admin
 	Route::middleware(['checkrole:2'])->group(function (){
+
 		
 	});
 
@@ -79,6 +79,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('/delete-data-cuti/{id}', [PengajuanCutiKaryawanController::class, 'deleteDataCuti'])->name('delete-data-cuti');	
 		Route::get('/delete-data-cuti/{id}', [PengajuanCutiKaryawanController::class, 'deleteDataCuti'])->name('delete-data-cuti');	
 		Route::get('/riwayat-cuti-karyawan', [PengajuanCutiKaryawanController::class, 'showRiwayat'])->name('riwayat-cuti-karyawan');
+
 
 	});
 

@@ -39,7 +39,7 @@
               <div class="numbers">
                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Sisa Cuti Tahunan</p>
                 <h5 class="font-weight-bolder mb-0">
-                 {{ $sisaCuti }}
+                 {{ $sisaCuti}}
                   <span class="text-success text-sm font-weight-bolder"></span>
                 </h5>
               </div>
@@ -69,7 +69,7 @@
               <div class="numbers">
                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Cuti Disetujui</p>
                 <h5 class="font-weight-bolder mb-0">
-                  0
+                  {{ $totalCutiDisetujui }}
                   <span class="text-danger text-sm font-weight-bolder"></span>
                 </h5>
               </div>
@@ -93,7 +93,7 @@
               <div class="numbers">
                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Cuti Ditolak</p>
                 <h5 class="font-weight-bolder mb-0">
-                  0
+                  {{ $totalCutiDitolak }}
                   <span class="text-success text-sm font-weight-bolder"></span>
                 </h5>
               </div>
@@ -117,7 +117,7 @@
               <div class="numbers">
                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Pengajuan Cuti</p>
                 <h5 class="font-weight-bolder mb-0">
-                  0
+                  {{ $totalPengajuanCuti }}
                   <span class="text-success text-sm font-weight-bolder"></span>
                 </h5>
               </div>
@@ -156,27 +156,61 @@
                 <tbody>
                     <tr>
                         <td class="px-4 py-2">Cuti Sakit</td>
-                        <td class="px-7 py-2">0</td>
+                        <td class="px-7 py-2 text-center">{{ $cutiSakit }}</td>
                     </tr>
                     <tr>
                         <td class="px-4 py-2">Cuti Besar</td>
-                        <td class="px-7 py-2">0</td>
+                        <td class="px-7 py-2 text-center">{{ $cutiBesar }}</td>
                     </tr>
                     <tr>
                         <td class="px-4 py-2">Cuti Tahunan</td>
-                        <td class="px-7 py-2">0</td>
+                        <td class="px-7 py-2 text-center">{{ $cutiTahunan }}</td>
                     </tr>
                     <tr>
                         <td class="px-4 py-2">Cuti Melahirkan</td>
-                        <td class="px-7 py-2">0</td>
+                        <td class="px-7 py-2 text-center">{{ $cutiMelahirkan }}</td>
                     </tr>
                     <tr>
                         <td class="px-4 py-2">Cuti Alasan Penting</td>
-                        <td class="px-7 py-2">0</td>
+                        <td class="px-7 py-2 text-center">{{ $cutiAlasan }}</td>
                     </tr>
-                    <!-- Tambahkan baris lain sesuai dengan kebutuhan -->
                 </tbody>
             </table>
+
+        </div>
+      </div>
+    </div>      
+
+    <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
+      <div class="card">
+        <div class="card-body p-3">
+
+            <div >
+              <h3 class="text-lg mb-0 text-capitalize font-weight-bold">Daftar Karyawan Cuti</h3>
+            </div>
+
+            <div class="card-body">
+                <table class="min-w-full divide-y ">
+                    <thead class="">
+                        <tr>
+                          <th class="px-4 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Nama</th>
+                          <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Tipe Cuti</th>
+                          <th class="px-4 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Tanggal Mulai</th>
+                          <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Tanggal Selesai</th>
+                        </tr>
+                    </thead>
+                    <tbody class="">
+                      @foreach( $dataKaryawanCuti as $cuti)
+                        <tr>
+                          <th class="px-4 py-3 ">{{ $cuti->karyawan->nama }}</th>
+                          <th class="px-5 py-3 ">{{ $cuti->jenisCuti->nama_cuti }}</th>
+                          <th class="px-4 py-3 ">{{ $cuti->tanggal_mulai }}</th>
+                          <th class="px-5 py-3 ">{{ $cuti->tanggal_selesai }}</th>
+                        </tr>
+                      @endforeach
+                    </tbody>
+                </table>
+            </div>
 
         </div>
       </div>
