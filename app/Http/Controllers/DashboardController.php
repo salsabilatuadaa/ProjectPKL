@@ -85,6 +85,7 @@ class DashboardController extends Controller
 
             $dataKaryawanCuti = Cuti::whereDate('tanggal_mulai', '<=', $tanggalSekarang)
             ->whereDate('tanggal_selesai', '>=', $tanggalSekarang)
+            ->where('status_id', 1)
             ->get();
 
             return view('karyawan.dashboard', compact('user','sisaCuti', 'totalCutiDisetujui', 'totalCutiDitolak', 'totalPengajuanCuti', 'cutiSakit', 'cutiBesar','cutiTahunan', 'cutiMelahirkan', 'cutiAlasan', 'dataKaryawanCuti'));

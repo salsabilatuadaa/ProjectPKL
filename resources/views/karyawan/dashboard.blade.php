@@ -220,7 +220,7 @@
 
   <br>
 
-  <div class="content-wrapper">
+  <!-- <div class="content-wrapper">
     <div class="content">
         <div class="card card-primary">
 
@@ -233,7 +233,6 @@
                     <thead class="bg-gray-50">
                         <tr>
                           <th class="px-4 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Tanggal Pengajuan</th>
-                          <!-- <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Nama</th> -->
                           <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Tipe Cuti</th>
                           <th class="px-4 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Tanggal Mulai</th>
                           <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Tanggal Selesai</th>
@@ -250,6 +249,6 @@
             </div>
         </div>
     </div>
-  </div>
+  </div> -->
 
 @endsection

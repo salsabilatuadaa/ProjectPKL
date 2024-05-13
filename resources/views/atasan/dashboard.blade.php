@@ -15,7 +15,7 @@
               </div>
             </div>
             <div class="col-5 d-flex align-items-center justify-content-end">
-              <a href="{{ route('form-pengajuan') }}" class="btn btn-primary btn-sm font-weight-bold" style="font-size: 15px;">Ajukan Cuti</a>
+              <a href="{{ route('form-pengajuan-atasan') }}" class="btn btn-primary btn-sm font-weight-bold" style="font-size: 15px;">Ajukan Cuti</a>
             </div>            
           </div>
         </div>
