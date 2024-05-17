@@ -138,7 +138,7 @@
 
   <div class="row">
 
-    <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
+    <div class="col-xl-5 col-sm-5 mb-xl-0 mb-4">
       <div class="card">
         <div class="card-body p-3">
 
@@ -150,7 +150,7 @@
                 <thead>
                     <tr>
                         <th class="px-4 py-2 text-left text-sm font-medium text-gray-500">Jenis Cuti</th>
-                        <th class="px-7 py-2 text-left text-sm font-medium text-gray-500">Total Diambil (hari)</th>
+                        <th class="px-6 py-2 text-left text-sm font-medium text-gray-500">Total Diambil (hari)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -181,7 +181,7 @@
       </div>
     </div>      
 
-    <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
+    <div class="col-xl-7 col-sm-7 mb-xl-0 mb-4">
       <div class="card">
         <div class="card-body p-3">
 
@@ -200,6 +200,14 @@
                         </tr>
                     </thead>
                     <tbody class="">
+                      @foreach( $dataAtasanCuti as $cuti)
+                        <tr>
+                          <th class="px-4 py-3 ">{{ $cuti->atasan->nama }}</th>
+                          <th class="px-5 py-3 ">{{ $cuti->jenisCuti->nama_cuti }}</th>
+                          <th class="px-4 py-3 ">{{ $cuti->tanggal_mulai }}</th>
+                          <th class="px-5 py-3 ">{{ $cuti->tanggal_selesai }}</th>
+                        </tr>
+                      @endforeach
                       @foreach( $dataKaryawanCuti as $cuti)
                         <tr>
                           <th class="px-4 py-3 ">{{ $cuti->karyawan->nama }}</th>

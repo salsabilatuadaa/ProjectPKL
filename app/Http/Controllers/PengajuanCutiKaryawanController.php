@@ -59,6 +59,20 @@ class PengajuanCutiKaryawanController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'jenis_cuti_id' => 'required',
+            'tanggal_mulai' => 'required|date',
+            'tanggal_selesai' => 'required|date|after_or_equal:tanggal_mulai',
+            'lamanya_cuti' => 'required|integer|min:1',
+            'alasan_cuti' => 'required',
+        ]);
+    
+        $jenisCuti = JenisCuti::findOrFail($request->jenis_cuti_id);
+        if ($jenisCuti->nama_cuti == 'Cuti Sakit') {
+            if ($request->lamanya_cuti > 2) {
+                return back()->withErrors(['lamanya_cuti' => 'Cuti sakit maksimal hanya dapat dua hari.'])->withInput();
+            }
+        }
 
         $data = $request->all();
 
@@ -91,6 +105,22 @@ class PengajuanCutiKaryawanController extends Controller
     }
 
     public function updateDataCuti(Request $request, $id){
+
+        $request->validate([
+            'jenis_cuti_id' => 'required',
+            'tanggal_mulai' => 'required|date',
+            'tanggal_selesai' => 'required|date|after_or_equal:tanggal_mulai',
+            'lamanya_cuti' => 'required|integer|min:1',
+            'alasan_cuti' => 'required',
+        ]);
+    
+        $jenisCuti = JenisCuti::findOrFail($request->jenis_cuti_id);
+        if ($jenisCuti->nama_cuti == 'Cuti Sakit') {
+            if ($request->lamanya_cuti > 2) {
+                return back()->withErrors(['lamanya_cuti' => 'Cuti sakit maksimal hanya dapat dua hari.'])->withInput();
+            }
+        }
+
         $dataCuti = Cuti::find($id);
         $dataCuti->update($request->all());
 
