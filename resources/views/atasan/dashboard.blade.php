@@ -250,27 +250,27 @@
   <br>
   
   <div class="content-wrapper">
-    <div class="content">
+    <div class="col-xl-5 col-sm-5 mb-xl-0 mb-4">
         <div class="card card-primary">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h3 class="card-title">List Karyawan Cuti</h3>
+                <h3 class="card-title">List Karyawan Cuti Terbanyak</h3>
             </div>
             <div class="card-body">
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="px-4 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Tanggal Pengajuan</th>
                             <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Nama</th>
-                            <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Tipe Cuti</th>
-                            <th class="px-4 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Tanggal Mulai</th>
-                            <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Tanggal Selesai</th>
-                            <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                            <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">Total Cuti (hari)</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
+                      
+                        @foreach( $karyawanCutiTerbanyak as $cutiterbanyak)
                         <tr>
-                          
+                            <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">{{ $cutiterbanyak->karyawan->nama }}</th>
+                            <th class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">{{ $cutiterbanyak->total_cuti }}</th>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

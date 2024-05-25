@@ -12,7 +12,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Data Cuti</h3>
                         </div>
-                        <form action="{{ route('simpan-pengajuan') }}" method="POST">
+                        <form action="{{ route('simpan-pengajuan') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
@@ -74,7 +74,7 @@
                                     @enderror
                                 </div>
 
-                                <!-- <div class="form-group">
+                                <div class="form-group">
                                     <label for="file_persyaratan">File Submit Persyaratan</label>
                                     <input type="file" name="file_persyaratan" class="form-control-file" id="file_persyaratan">
                                     @error('file_persyaratan')
@@ -82,7 +82,7 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                </div> -->
+                                </div>
                             </div>
        
 

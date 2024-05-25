@@ -47,9 +47,19 @@ class User extends Authenticatable
         return $this->hasOne(Admin::class);
     }
 
+    public function profileAdmIsComplete()
+    {
+        return $this->admin()->exists();
+    }
+
     public function karyawan()
     {
         return $this->hasOne(Karyawan::class);
+    }
+
+    public function profileKarIsComplete()
+    {
+        return $this->karyawan()->exists();
     }
 
     public function atasan()
@@ -57,9 +67,19 @@ class User extends Authenticatable
         return $this->hasOne(Atasan::class);
     }
 
+    public function profileAtsIsComplete()
+    {
+        return $this->atasan()->exists();
+    }
+
     public function kepegawaian()
     {
         return $this->hasOne(Kepegawaian::class);
+    }
+
+    public function profileKepIsComplete()
+    {
+        return $this->kepegawaian()->exists();
     }
     
 }

@@ -23,7 +23,11 @@ class SessionsController extends Controller
         if(Auth::attempt($attributes))
         {
             session()->regenerate();
-            return redirect('dashboard');
+            if (Auth::user()->profileKarIsComplete() || Auth::user()->profileAtsIsComplete() || Auth::user()->profileAdmIsComplete() || Auth::user()->profileKepIsComplete()) {
+                return redirect('dashboard');
+            } else {
+                return redirect()->route('user-profile')->with('warning', 'Please complete your profile.');
+            }
         }
         else{
 

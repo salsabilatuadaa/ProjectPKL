@@ -20,5 +20,10 @@ class Karyawan extends Model
     {
         return $this->belongsTo(Atasan::class);
     }
+
+    public function cutis()
+    {
+        return $this->hasMany(Cuti::class);
+    }
     
 }

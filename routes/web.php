@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardKaryawanController;
 use App\Http\Controllers\DashboardKepegawaianController;
 use App\Http\Controllers\DashboardAtasanController;
@@ -56,6 +57,10 @@ Route::group(['middleware' => 'auth'], function () {
 
 	//admin
 	Route::middleware(['checkrole:2'])->group(function (){
+		Route::get('/list-pengajuan-atasan', [AdminController::class, 'showPengajuanAtasan'])->name('list-pengajuan-atasan');
+		Route::get('/setujui-pengajuan/{id}', [AdminController::class, 'setujuiPengajuan']);
+		Route::get('/tolak-pengajuan/{id}', [AdminController::class, 'tolakPengajuan']);
+		Route::get('/list-pengajuan-hr', [AdminController::class, 'showPengajuanHR'])->name('list-pengajuan-hr');
 
 		
 	});

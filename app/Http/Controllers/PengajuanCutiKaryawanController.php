@@ -9,6 +9,7 @@ use App\Models\Karyawan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PengajuanCutiKaryawanController extends Controller
 {
@@ -65,6 +66,7 @@ class PengajuanCutiKaryawanController extends Controller
             'tanggal_selesai' => 'required|date|after_or_equal:tanggal_mulai',
             'lamanya_cuti' => 'required|integer|min:1',
             'alasan_cuti' => 'required',
+            'file_persyaratan' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048',
         ]);
     
         $jenisCuti = JenisCuti::findOrFail($request->jenis_cuti_id);
@@ -80,6 +82,14 @@ class PengajuanCutiKaryawanController extends Controller
 
         $karyawan = $user->karyawan;
 
+        if ($request->hasFile('file_persyaratan')) {
+            $filePath = $request->file('file_persyaratan')->store('persyaratan', 'public');
+            $data['file_persyaratan'] = $filePath;
+        } else {
+            $data['file_persyaratan'] = null;
+        }
+    
+
         Cuti::create([
             'alasan_cuti' => $data['alasan_cuti'],
             'tanggal_mulai' => $data['tanggal_mulai'],
@@ -87,8 +97,8 @@ class PengajuanCutiKaryawanController extends Controller
             'tanggal_selesai' => $data['tanggal_selesai'],
             'lamanya_cuti' => $data['lamanya_cuti'],
             'karyawan_id' => $karyawan->id,
-            'atasan_id' => $karyawan->atasan_id
-            // 'file_persyaratan' => $data[]
+            'atasan_id' => $karyawan->atasan_id,
+            'file_persyaratan' => $data['file_persyaratan']
         ]);
 
         
