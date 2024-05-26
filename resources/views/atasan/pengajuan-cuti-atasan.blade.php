@@ -41,11 +41,11 @@
                                                     
                                             </th>
                                             <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
-                                                <a href="/delete-data-cuti-atasan/{{ $cuti->id }}" class="btn btn-danger btn-sm float-right" onclick="return confirmDelete()">Delete</a>
+                                                <a href="/cancel-data-cuti-atasan/{{ $cuti->id }}" class="btn btn-danger btn-sm float-right" onclick="return confirmDelete()">Cancel</a>
                                             </th>
                                             <script>
                                                 function confirmDelete() {
-                                                    return confirm("Are you sure you want to delete this data?");
+                                                    return confirm("Are you sure you want to cancel?");
                                                 }
                                             </script>
                                         </tr>

@@ -117,12 +117,18 @@ class PengajuanCutiAtasanController extends Controller
 
     }
 
-    public function deleteDataCuti($id){
+    public function cancelDataCuti($id){
 
         $dataCuti = CutiAtasan::find($id);
-        $dataCuti->delete();
 
-        return redirect()->route('pengajuan-cuti-atasan');
+        if($cuti){
+            $cuti -> status_id = '4';
+            $cuti -> status_atasan = '4';
+            $cuti -> aktor = '3';
+            $cuti->save();
+            return redirect()->route('pengajuan-cuti-atasan');
+        }
+
     }
 
     public function showRiwayat()

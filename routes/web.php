@@ -76,7 +76,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::post('/form-pengajuan-atasan', [PengajuanCutiAtasanController::class, 'store'])->name('simpan-pengajuan-atasan');
 		Route::get('/edit-data-cuti-atasan/{id}', [PengajuanCutiAtasanController::class, 'editDataCuti'])->name('edit-data-cuti-atasan');			
 		Route::post('/update-data-cuti-atasan/{id}', [PengajuanCutiAtasanController::class, 'updateDataCuti'])->name('update-data-cuti-atasan');			
-		Route::get('/delete-data-cuti-atasan/{id}', [PengajuanCutiAtasanController::class, 'deleteDataCuti'])->name('delete-data-cuti-atasan');	
+		Route::get('/cancel-data-cuti-atasan/{id}', [PengajuanCutiAtasanController::class, 'cancelDataCuti'])->name('cancel-data-cuti-atasan');	
 		Route::get('/riwayat-cuti-atasan', [PengajuanCutiAtasanController::class, 'showRiwayat'])->name('riwayat-cuti-atasan');
 
 
@@ -91,7 +91,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('/pengajuan-cuti-karyawan', [PengajuanCutiKaryawanController::class, 'showCuti'])->name('pengajuan-cuti-karyawan');
 		Route::get('/edit-data-cuti/{id}', [PengajuanCutiKaryawanController::class, 'editDataCuti'])->name('edit-data-cuti');			
 		Route::post('/update-data-cuti/{id}', [PengajuanCutiKaryawanController::class, 'updateDataCuti'])->name('update-data-cuti');			
-		Route::get('/delete-data-cuti/{id}', [PengajuanCutiKaryawanController::class, 'deleteDataCuti'])->name('delete-data-cuti');	
+		Route::get('/cancel-data-cuti/{id}', [PengajuanCutiKaryawanController::class, 'cancelDataCuti'])->name('cancel-data-cuti');	
 		Route::get('/riwayat-cuti-karyawan', [PengajuanCutiKaryawanController::class, 'showRiwayat'])->name('riwayat-cuti-karyawan');
 
 

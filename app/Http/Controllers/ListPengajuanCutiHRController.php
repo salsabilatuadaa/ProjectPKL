@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Kepegawaian;
 use App\Models\Cuti;
+use App\Models\CutiAtasan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -16,10 +17,13 @@ class ListPengajuanCutiHRController extends Controller
 
         if ($HR) {
 
-            $cuti = Cuti::where('status_atasan', '1')
-                    ->get();
+            $cutikaryawan = Cuti::where('status_atasan', '1')
+            ->get();
+
+            $cutiatasan = CutiAtasan::where('status_id', '3')
+            ->get();
         
-            return view('kepegawaian.list-pengajuan-hr', compact('cuti'));
+            return view('kepegawaian.list-pengajuan-hr', compact('cutikaryawan', 'cutiatasan'));
         }
     }
 

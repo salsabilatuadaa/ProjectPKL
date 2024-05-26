@@ -119,7 +119,7 @@
                     </div>
                     
                     <div class="flex justify-end">
-                        <button type="submit" class="btn bg-gradient-dark btn-md mt-4 mb-4">Save Changes</button>
+                        <button type="submit" class="btn bg-gradient-dark btn-md mt-4 mb-4">Update</button>
                     </div>
 
                     

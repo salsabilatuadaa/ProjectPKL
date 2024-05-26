@@ -21,4 +21,9 @@ class CutiAtasan extends Model
         return $this->belongsTo(StatusPengajuan::class, 'status_id');
     }
 
+    public function atasan()
+    {
+        return $this->belongsTo(Atasan::class, 'atasan_id', 'id');
+    }
+
 }

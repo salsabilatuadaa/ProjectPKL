@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cuti;
+use App\Models\CutiAtasan;
 
 use Illuminate\Http\Request;
 
@@ -41,10 +42,13 @@ class AdminController extends Controller
 
     public function showPengajuanHR()
     {
-        $cuti = Cuti::where('status_id', '!=', 3)
+        $cutikaryawan = Cuti::where('status_atasan', '1')
+        ->get();
+
+        $cutiatasan = CutiAtasan::where('status_id', '3')
         ->get();
         
-        return view('admin.list-pengajuan-hr', compact('cuti'));
+        return view('admin.list-pengajuan-hr', compact('cutikaryawan', 'cutiatasan'));
     }
 
 

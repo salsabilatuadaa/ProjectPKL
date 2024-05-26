@@ -23,12 +23,14 @@ return new class extends Migration
             $table->unsignedBigInteger('status_id')->default(3);
             $table->unsignedBigInteger('jenis_cuti_id');
             $table->string('file_persyaratan')->nullable();
+            $table->unsignedBigInteger('aktor')->nullable();
             $table->timestamps();
 
             
             $table->foreign('atasan_id')->references('id')->on('atasan');
             $table->foreign('status_id')->references('id')->on('status_pengajuan');
             $table->foreign('jenis_cuti_id')->references('id')->on('jenis_cuti');
+            $table->foreign('aktor')->references('id')->on('jabatan');
         });
     }
 

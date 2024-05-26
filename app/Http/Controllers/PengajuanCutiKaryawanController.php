@@ -137,11 +137,18 @@ class PengajuanCutiKaryawanController extends Controller
 
     }
 
-    public function deleteDataCuti($id){
+    public function cancelDataCuti($id){
 
         $dataCuti = Cuti::find($id);
-        $dataCuti->delete();
 
-        return redirect()->route('pengajuan-cuti-karyawan');
+        if($cuti){
+            $cuti -> status_id = '4';
+            $cuti -> status_atasan = '4';
+            $cuti -> aktor_atasan = '4';
+            $cuti -> aktor_hr = '4';
+            $cuti->save();
+            return redirect()->route('pengajuan-cuti-karyawan');
+        }
+
     }
 }

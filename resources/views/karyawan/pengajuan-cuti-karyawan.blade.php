@@ -45,14 +45,14 @@
                                             </th>
                                             <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
                                                 @if ($cuti->status_atasan != 3)
-                                                    <a href="/delete-data-cuti/{{ $cuti->id }}" class="btn btn-danger btn-sm float-right disabled" onclick="return confirmDelete()">Delete</a>
+                                                    <a href="/cancel-data-cuti/{{ $cuti->id }}" class="btn btn-danger btn-sm float-right disabled" onclick="return confirmDelete()">Cancel</a>
                                                 @else
-                                                    <a href="/delete-data-cuti/{{ $cuti->id }}" class="btn btn-danger btn-sm float-right" onclick="return confirmDelete()">Delete</a>
+                                                    <a href="/cancel-data-cuti/{{ $cuti->id }}" class="btn btn-danger btn-sm float-right" onclick="return confirmDelete()">Cancel</a>
                                                 @endif
                                             </th>
                                             <script>
                                                 function confirmDelete() {
-                                                    return confirm("Are you sure you want to delete this data?");
+                                                    return confirm("Are you sure you want to cancel?");
                                                 }
                                             </script>
                                         </tr>
