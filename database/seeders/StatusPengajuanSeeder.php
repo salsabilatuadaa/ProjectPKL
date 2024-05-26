@@ -31,6 +31,12 @@ class StatusPengajuanSeeder extends Seeder
                 'status' => 'menunggu verifikasi',
                 'created_at' => now(),
                 'updated_at' => now()
+            ],
+            [
+                'id' => 4,
+                'status' => 'dibatalkan',
+                'created_at' => now(),
+                'updated_at' => now()
             ]
         ];
        foreach($status as $stats){

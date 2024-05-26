@@ -43,14 +43,21 @@ class PengajuanCutiAtasanController extends Controller
 
         $atasan = $user->atasan;
 
+        if ($request->hasFile('file_persyaratan')) {
+            $filePath = $request->file('file_persyaratan')->store('persyaratan', 'public');
+            $data['file_persyaratan'] = $filePath;
+        } else {
+            $data['file_persyaratan'] = null;
+        }
+
         CutiAtasan::create([
             'alasan_cuti' => $data['alasan_cuti'],
             'tanggal_mulai' => $data['tanggal_mulai'],
             'jenis_cuti_id' => $data['jenis_cuti_id'],
             'tanggal_selesai' => $data['tanggal_selesai'],
             'lamanya_cuti' => $data['lamanya_cuti'],
-            'atasan_id' => $atasan->id
-            // 'file_persyaratan' => $data[]
+            'atasan_id' => $atasan->id,
+            'file_persyaratan' => $data['file_persyaratan']
         ]);
 
         

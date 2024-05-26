@@ -74,7 +74,7 @@
                                     @enderror
                                 </div>
 
-                                <!-- <div class="form-group">
+                                <div class="form-group">
                                     <label for="file_persyaratan">File Submit Persyaratan</label>
                                     <input type="file" name="file_persyaratan" class="form-control-file" id="file_persyaratan">
                                     @error('file_persyaratan')
@@ -82,7 +82,7 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                </div> -->
+                                </div>
                             </div>
        
 

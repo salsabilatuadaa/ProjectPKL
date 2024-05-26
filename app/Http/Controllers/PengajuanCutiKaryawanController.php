@@ -66,7 +66,6 @@ class PengajuanCutiKaryawanController extends Controller
             'tanggal_selesai' => 'required|date|after_or_equal:tanggal_mulai',
             'lamanya_cuti' => 'required|integer|min:1',
             'alasan_cuti' => 'required',
-            'file_persyaratan' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048',
         ]);
     
         $jenisCuti = JenisCuti::findOrFail($request->jenis_cuti_id);

@@ -44,7 +44,30 @@ class DashboardController extends Controller
 
             return view('kepegawaian.dashboard', compact('user', 'dataKaryawanCuti', 'dataAtasanCuti', 'karyawanCutiTerbanyak'));
         }else if($user->role === 2){
-            return view('admin.dashboard', compact('user'));
+            $tahunSekarang = now()->year;
+
+            $tanggalSekarang = now()->toDateString();
+
+            $dataKaryawanCuti = Cuti::whereDate('tanggal_mulai', '<=', $tanggalSekarang)
+            ->whereDate('tanggal_selesai', '>=', $tanggalSekarang)
+            ->where('status_id', 1)
+            ->get();
+
+            $dataAtasanCuti = CutiAtasan::whereDate('tanggal_mulai', '<=', $tanggalSekarang)
+            ->whereDate('tanggal_selesai', '>=', $tanggalSekarang)
+            ->where('status_id', 1)
+            ->get();
+
+            $karyawanCutiTerbanyak = Cuti::select('karyawan_id', DB::raw('SUM(lamanya_cuti) as total_cuti')) 
+            ->whereYear('tanggal_selesai', $tahunSekarang)
+            ->where('status_id', 1)
+            ->groupBy('karyawan_id')
+            ->orderBy('total_cuti', 'DESC')
+            ->with('karyawan') 
+            ->take(5)
+            ->get();
+
+            return view('admin.dashboard', compact('user', 'dataKaryawanCuti', 'dataAtasanCuti', 'karyawanCutiTerbanyak'));
         } else if ($user->role === 3) {
             $tahunSekarang = now()->year;
 

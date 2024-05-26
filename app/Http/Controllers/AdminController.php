@@ -41,7 +41,7 @@ class AdminController extends Controller
 
     public function showPengajuanHR()
     {
-        $cuti = Cuti::where('status_id', '3')
+        $cuti = Cuti::where('status_id', '!=', 3)
         ->get();
         
         return view('admin.list-pengajuan-hr', compact('cuti'));

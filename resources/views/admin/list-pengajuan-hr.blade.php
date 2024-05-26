@@ -38,23 +38,50 @@
                                             <td class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">{{ $cuti->tanggal_selesai }}</td>
                                             <td class="px-3 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">{{ $cuti->statusAtasan->status}}</td>
                                             <td class="px-3 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">{{ $cuti->statusHR->status}}</td>
-                                            <th class="py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
-                                                <a href="/edit-data-cuti/{{ $cuti->id }}" class="btn btn-info btn-sm float-right">Detail</a>
-                                            </th>
+                                            <td class="py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
+                                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#detailModal-{{ $cuti->id }}">Detail</button>
+                                            </td>
                                             <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
                                                 <a href="/setujui-pengajuan-hr/{{ $cuti->id }}" class="btn btn-danger btn-sm float-right" onclick="return confirmAction('ACC')">Setuju</a>
                                             </th>
                                             <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
                                                 <a href="/tolak-pengajuan-hr/{{ $cuti->id }}" class="btn btn-danger btn-sm float-right" onclick="return confirmAction('Tolak')">Tolak</a>
                                             </th>
-                                            <script>
-                                                function confirmAction(action) {
-                                                    var message = action === 'ACC' ? "Are you sure you want to ACC?" : "Are you sure you want to reject?";
-                                                    return confirm(message);
-                                                }
-                                                
-                                            </script>
 
+                                             <!-- Modal -->
+                                             <div class="modal fade" id="detailModal-{{ $cuti->id }}" tabindex="-1" aria-labelledby="detailModalLabel-{{ $cuti->id }}" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="detailModalLabel-{{ $cuti->id }}">Detail Pengajuan Cuti</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p><strong>Tanggal Pengajuan:</strong> {{ $cuti->tanggal_pengajuan }}</p>
+                                                            <p><strong>Nama:</strong> {{ $cuti->karyawan->nama }}</p>
+                                                            <p><strong>Tipe Cuti:</strong> {{ $cuti->jenisCuti->nama_cuti }}</p>
+                                                            <p><strong>Tanggal Mulai:</strong> {{ $cuti->tanggal_mulai }}</p>
+                                                            <p><strong>Tanggal Selesai:</strong> {{ $cuti->tanggal_selesai }}</p>
+                                                            <p><strong>Status:</strong> {{ $cuti->statusAtasan->status }}</p>
+                                                            <p><strong>Alasan Cuti:</strong> {{ $cuti->alasan_cuti }}</p>
+                                                            <p><strong>File Persyaratan</strong></p>
+                                                            @if($cuti->file_persyaratan)
+                                                                <div class="mt-3">
+                                                                    @if(pathinfo($cuti->file_persyaratan, PATHINFO_EXTENSION) == 'pdf')
+                                                                        <embed src="{{ asset('storage/' . $cuti->file_persyaratan) }}" type="application/pdf" width="100%" height="500px" />
+                                                                    @else
+                                                                        <img src="{{ asset('storage/' . $cuti->file_persyaratan) }}" alt="File Persyaratan" width="100%" />
+                                                                    @endif
+                                                                </div>
+                                                            @endif
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
                                         </tr>
                                     @endforeach
                                     
@@ -69,3 +96,11 @@
     </div>
   
   @endsection
+
+  <script>
+        function confirmAction(action) {
+            var message = action === 'ACC' ? "Are you sure you want to ACC?" : "Are you sure you want to reject?";
+            return confirm(message);
+        }
+
+   </script>

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('atasan_id');
             $table->unsignedBigInteger('status_id')->default(3);
             $table->unsignedBigInteger('jenis_cuti_id');
+            $table->string('file_persyaratan')->nullable();
             $table->timestamps();
 
             

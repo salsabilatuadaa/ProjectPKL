@@ -16,7 +16,7 @@ class ListPengajuanCutiHRController extends Controller
 
         if ($HR) {
 
-            $cuti = Cuti::where('status_id', '3')
+            $cuti = Cuti::where('status_atasan', '1')
                     ->get();
         
             return view('kepegawaian.list-pengajuan-hr', compact('cuti'));
