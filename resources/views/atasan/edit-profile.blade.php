@@ -47,7 +47,7 @@
                         <div>
                             <label for="nip" class="form-control-label">NIP</label>
                             <div class="@error('nip')border border-danger rounded-3 @enderror">
-                                <input class="form-control" value="{{ $ats->nip }}" style="color: black;" type="text" placeholder="NIP" id="nip" name="nip" required>
+                                <input class="form-control" value="{{ auth()->user()->nip }}" style="color: black;" type="text" placeholder="NIP" id="nip" name="nip" required disabled>
                                     @error('nip')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror
@@ -65,7 +65,7 @@
                         <div>
                             <label for="email" class="form-control-label">Email</label>
                             <div class="@error('email')border border-danger rounded-3 @enderror">
-                                <input class="form-control" value="{{ auth()->user()->email }}" style="color: black;" type="email" placeholder="@example.com" id="email" name="email" required disabled>
+                                <input class="form-control" value="{{ auth()->user()->email }}" style="color: black;" type="email" placeholder="@example.com" id="email" name="email" required >
                                     @error('email')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror

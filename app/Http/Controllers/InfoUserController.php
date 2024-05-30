@@ -46,39 +46,47 @@ class InfoUserController extends Controller
 
         if($user -> role === 1){ //admin
             Kepegawaian::create([
-                'nip' => $data['nip'],
                 'nama' => $data['nama'],
                 'lokasi_kerja' => $data['lokasi_kerja'],
                 'user_id' => $user->id
                 
-            ]); 
+            ]);
+            $user->update([
+                'email' => $data['email']
+            ]);
             return redirect()->route('user-profile');
         }else if($user -> role === 2){ //admin
             Admin::create([
-                'nip' => $data['nip'],
                 'nama' => $data['nama'],
                 'lokasi_kerja' => $data['lokasi_kerja'],
                 'user_id' => $user->id
                 
+            ]);
+            $user->update([
+                'email' => $data['email']
             ]);
             return redirect()->route('user-profile');
         }else if($user -> role === 3){ //admin
             Atasan::create([
-                'nip' => $data['nip'],
                 'nama' => $data['nama'],
                 'lokasi_kerja' => $data['lokasi_kerja'],
                 'user_id' => $user->id
                 
             ]);
+            $user->update([
+                'email' => $data['email']
+            ]);
             return redirect()->route('user-profile');
         }else if($user -> role === 4){ //admin
             Karyawan::create([
-                'nip' => $data['nip'],
                 'nama' => $data['nama'],
                 'lokasi_kerja' => $data['lokasi_kerja'],
                 'atasan_id'=> $data['atasan_id'],
                 'user_id' => $user->id
                 
+            ]);
+            $user->update([
+                'email' => $data['email']
             ]);
             return redirect()->route('user-profile');
         }
@@ -128,7 +136,22 @@ class InfoUserController extends Controller
                 return redirect()->back()->with('error', 'Peran pengguna tidak valid.');
         }
 
-        $model->update($request->all());
+        if (!$model) {
+            return redirect()->back()->with('error', 'Data tidak ditemukan.');
+        }
+    
+        $model->update($request->only(['nama', 'lokasi_kerja']));
+    
+        if ($user->role == 1 && $request->has('email')) {
+            $user->update(['email' => $request->input('email')]);
+        } else if ($user->role == 2 && $request->has('email')) {
+            $user->update(['email' => $request->input('email')]);
+        } else if ($user->role == 3 && $request->has('email')) {
+            $user->update(['email' => $request->input('email')]);
+        } else if ($user->role == 4 && $request->has('email')) {
+            $user->update(['email' => $request->input('email')]);
+        } 
+    
 
 
         return redirect()->route('user-profile')->with('success', 'Data berhasil diperbarui.');

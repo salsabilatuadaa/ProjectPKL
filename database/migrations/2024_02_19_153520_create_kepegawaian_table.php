@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('kepegawaian', function (Blueprint $table) {
             $table->id();
-            $table->string('nip')->unique();
             $table->string('nama');
             $table->string('lokasi_kerja');
             // $table->string('foto_profil');

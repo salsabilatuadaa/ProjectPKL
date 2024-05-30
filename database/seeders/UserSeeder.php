@@ -20,32 +20,32 @@ class UserSeeder extends Seeder
             [
                 'id' => 1,
                 'role' => 1,
-                'email' => 'kepegawaian@softui.com',
-                'password' => Hash::make('secret'),
+                'nip' => '196609151994031007',
+                'password' => Hash::make('1234'),
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'id' => 2,
                 'role' => 2,
-                'email' => 'admin@softui.com',
-                'password' => Hash::make('secret'),
+                'nip' => '196504251988031008',
+                'password' => Hash::make('1234'),
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'id' => 3,
                 'role' => 3,
-                'email' => 'atasan@softui.com',
-                'password' => Hash::make('secret'),
+                'nip' => '198705082010011011',
+                'password' => Hash::make('1234'),
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'id' => 4,
                 'role' => 4,
-                'email' => 'karyawan@softui.com',
-                'password' => Hash::make('secret'),
+                'nip' => '197411271994031004',
+                'password' => Hash::make('1234'),
                 'created_at' => now(),
                 'updated_at' => now()
             ]
@@ -54,14 +54,5 @@ class UserSeeder extends Seeder
         User::create($users);
        }
        
-    //     DB::table('users')->insert([
-    //         'id' => 1,
-    //         'role' => 1,
-    //         'email' => 'admin@softui.com',
-    //         'password' => Hash::make('secret'),
-    //         'created_at' => now(),
-    //         'updated_at' => now()
-    //     ],
-    // );
     }
 }

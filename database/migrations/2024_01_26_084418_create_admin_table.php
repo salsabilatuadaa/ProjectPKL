@@ -18,7 +18,6 @@ return new class extends Migration
 
         Schema::create('admin', function (Blueprint $table) {
             $table->id();
-            $table->string('nip')->unique();
             $table->string('nama');
             $table->string('lokasi_kerja');
             $table->string('foto_profil')->nullable();
