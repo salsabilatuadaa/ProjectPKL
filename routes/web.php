@@ -58,8 +58,12 @@ Route::group(['middleware' => 'auth'], function () {
 	//admin
 	Route::middleware(['checkrole:2'])->group(function (){
 		Route::get('/list-pengajuan-atasan', [AdminController::class, 'showPengajuanAtasan'])->name('list-pengajuan-atasan');
-		Route::get('/setujui-pengajuan/{id}', [AdminController::class, 'setujuiPengajuan']);
-		Route::get('/tolak-pengajuan/{id}', [AdminController::class, 'tolakPengajuan']);
+		Route::get('/setujui-pengajuan-ats/{id}', [AdminController::class, 'setujuiPengajuanAtasan']);
+		Route::get('/tolak-pengajuan-ats/{id}', [AdminController::class, 'tolakPengajuanAtasan']);
+		Route::get('/setujui-pengajuan-hr/{id}', [AdminController::class, 'setujuiPengajuanHR']);
+		Route::get('/tolak-pengajuan-hr/{id}', [AdminController::class, 'tolakPengajuanHR']);
+		Route::get('/setujui-pengajuan-hra/{id}', [AdminController::class, 'setujuiPengajuanHRAts']);
+		Route::get('/tolak-pengajuan-hra/{id}', [AdminController::class, 'tolakPengajuanHRAts']);
 		Route::get('/list-pengajuan-hr', [AdminController::class, 'showPengajuanHR'])->name('list-pengajuan-hr');
 
 		

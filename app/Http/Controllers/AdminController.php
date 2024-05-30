@@ -18,7 +18,7 @@ class AdminController extends Controller
     
     }
 
-    public function setujuiPengajuan($id){
+    public function setujuiPengajuanAtasan($id){
         $cuti = Cuti::find($id);
 
         if($cuti){
@@ -28,7 +28,7 @@ class AdminController extends Controller
         }
     }
 
-    public function tolakPengajuan($id){
+    public function tolakPengajuanAtasan($id){
         $cuti = Cuti::find($id);
 
         if($cuti){
@@ -42,8 +42,10 @@ class AdminController extends Controller
 
     public function showPengajuanHR()
     {
-        $cutikaryawan = Cuti::where('status_atasan', '1')
+        $cutikaryawan = Cuti::where('status_id', '3')
+        ->where('status_atasan', '1')
         ->get();
+
 
         $cutiatasan = CutiAtasan::where('status_id', '3')
         ->get();
@@ -51,5 +53,48 @@ class AdminController extends Controller
         return view('admin.list-pengajuan-hr', compact('cutikaryawan', 'cutiatasan'));
     }
 
+    public function setujuiPengajuanHR($id){
+        $cuti = Cuti::find($id);
+
+        if($cuti){
+            $cuti -> status_id = '1';
+            $cuti->save();
+            return redirect()->back()->with('success', 'Cuti berhasil disetujui.');
+        }
+
+    }
+
+    public function tolakPengajuanHR($id){
+        $cuti = Cuti::find($id);
+
+        if($cuti){
+            $cuti -> status_id = '2';
+            $cuti->save();
+            return redirect()->back()->with('success', 'Pengajuan cuti ditolak');
+        }
+    }
+
+    public function setujuiPengajuanHRAts($id){
+        $cuti = CutiAtasan::find($id);
+
+        if($cuti){
+            $cuti -> status_id = '1';
+            $cuti->save();
+            return redirect()->back()->with('success', 'Cuti berhasil disetujui.');
+        }
+
+    }
+
+    public function tolakPengajuanHRAts($id){
+        $cuti = CutiAtasan::find($id);
+
+        if($cuti){
+            $cuti -> status_id = '2';
+            $cuti->save();
+            return redirect()->back()->with('success', 'Pengajuan cuti ditolak');
+        }
+    }
+
+    
 
 }

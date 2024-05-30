@@ -42,10 +42,10 @@
                                                 <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#detailModal-{{ $cuti->id }}">Detail</button>
                                             </td>
                                             <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
-                                                <a href="/setujui-pengajuan/{{ $cuti->id }}" class="btn btn-danger btn-sm float-right" onclick="return confirmAction('ACC')">Setuju</a>
+                                                <a href="/setujui-pengajuan-ats/{{ $cuti->id }}" class="btn btn-danger btn-sm float-right" onclick="return confirmAction('ACC')">Setuju</a>
                                             </th>
                                             <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
-                                                <a href="/tolak-pengajuan/{{ $cuti->id }}" class="btn btn-danger btn-sm float-right" onclick="return confirmAction('Tolak')">Tolak</a>
+                                                <a href="/tolak-pengajuan-ats/{{ $cuti->id }}" class="btn btn-danger btn-sm float-right" onclick="return confirmAction('Tolak')">Tolak</a>
                                             </th>
 
                                              <!-- Modal -->

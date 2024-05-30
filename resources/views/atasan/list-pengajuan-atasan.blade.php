@@ -40,7 +40,14 @@
                                     <a href="/tolak-pengajuan/{{ $cuti->id }}" class="btn btn-danger btn-sm" onclick="return confirmAction('Tolak')">Tolak</a>
                                 </td>
                             </tr>
-                            
+
+                            <script>
+                                function confirmAction(action) {
+                                    var message = action === 'ACC' ? "Are you sure you want to approve?" : "Are you sure you want to reject?";
+                                    return confirm(message);
+                                }
+                            </script>
+
                             <!-- Modal -->
                             <div class="modal fade" id="detailModal-{{ $cuti->id }}" tabindex="-1" aria-labelledby="detailModalLabel-{{ $cuti->id }}" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
@@ -83,11 +90,3 @@
     <br>
 </div>
 @endsection
-
-<script>
-function confirmAction(action) {
-    var message = action === 'ACC' ? "Are you sure you want to ACC?" : "Are you sure you want to reject?";
-    return confirm
-
-}
-</script>

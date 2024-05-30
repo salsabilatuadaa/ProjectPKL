@@ -40,10 +40,10 @@
                                                 <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#detailModal-{{ $cuti->id }}">Detail</button>
                                             </td>
                                             <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
-                                                <a href="/setujui-pengajuan-hr/{{ $cuti->id }}" class="btn btn-danger btn-sm float-right" onclick="return confirmAction('ACC')">Setuju</a>
+                                                <a href="/setujui-pengajuan-hra/{{ $cuti->id }}" class="btn btn-danger btn-sm float-right" onclick="return confirmAction('ACC')">Setuju</a>
                                             </th>
                                             <th class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
-                                                <a href="/tolak-pengajuan-hr/{{ $cuti->id }}" class="btn btn-danger btn-sm float-right" onclick="return confirmAction('Tolak')">Tolak</a>
+                                                <a href="/tolak-pengajuan-hra/{{ $cuti->id }}" class="btn btn-danger btn-sm float-right" onclick="return confirmAction('Tolak')">Tolak</a>
                                             </th>
 
                                              <!-- Modal -->
@@ -71,6 +71,8 @@
                                                                     @endif
                                                                 </div>
                                                             @endif
+
+                                                            
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -89,7 +91,6 @@
                                             <td class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">{{ $cutiItem->jenisCuti->nama_cuti }}</td>
                                             <td class="px-4 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">{{ $cutiItem->tanggal_mulai }}</td>
                                             <td class="px-5 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">{{ $cutiItem->tanggal_selesai }}</td>
-                                            <td class="px-3 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">{{ $cutiItem->statusAtasan->status}}</td>
                                             <td class="px-3 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider">{{ $cutiItem->statusHR->status}}</td>
                                             <td class="py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
                                                 <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#detailModal-{{ $cutiItem->id }}">Detail</button>
@@ -123,7 +124,6 @@
                                                             <p><strong>Tipe Cuti:</strong> {{ $cutiItem->jenisCuti->nama_cuti }}</p>
                                                             <p><strong>Tanggal Mulai:</strong> {{ $cutiItem->tanggal_mulai }}</p>
                                                             <p><strong>Tanggal Selesai:</strong> {{ $cutiItem->tanggal_selesai }}</p>
-                                                            <p><strong>Status:</strong> {{ $cutiItem->statusAtasan->status }}</p>
                                                             <p><strong>Alasan Cuti:</strong> {{ $cutiItem->alasan_cuti }}</p>
                                                             <p><strong>File Persyaratan</strong></p>
                                                             @if($cutiItem->file_persyaratan)
