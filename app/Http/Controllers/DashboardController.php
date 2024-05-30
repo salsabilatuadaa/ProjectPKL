@@ -157,7 +157,7 @@ class DashboardController extends Controller
 
             $karyawan = Karyawan::where('user_id', auth()->id())->first();
 
-            if ($karyawan && empty($karyawan->nip)) {
+            if ($karyawan && empty($karyawan->nama)) {
                 return redirect()->route('karyawan.user-profile'); // Ubah ini ke route halaman isi profil Anda
             }
             else{

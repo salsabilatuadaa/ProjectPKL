@@ -38,10 +38,10 @@
                                     <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#detailModal-{{ $cuti->id }}">Detail</button>
                                 </td>
                                 <td class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
-                                    <a href="/setujui-pengajuan-hr/{{ $cuti->id }}" class="btn btn-danger btn-sm" onclick="return confirmAction('ACC')">Setuju</a>
+                                    <a href="{{ route('setujui-hra', $cuti->id) }}" class="btn btn-danger btn-sm" onclick="return confirmAction('ACC')">Setuju</a>
                                 </td>
                                 <td class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
-                                    <a href="/tolak-pengajuan-hr/{{ $cuti->id }}" class="btn btn-danger btn-sm" onclick="return confirmAction('Tolak')">Tolak</a>
+                                    <a href="{{ route('setujui-hra', $cuti->id) }}" class="btn btn-danger btn-sm" onclick="return confirmAction('Tolak')">Tolak</a>
                                 </td>
                             </tr>
                             
@@ -91,10 +91,10 @@
                                     <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#detailModal-{{ $cutiItem->id }}">Detail</button>
                                 </td>
                                 <td class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
-                                    <a href="/setujui-pengajuan-hr/{{ $cutiItem->id }}" class="btn btn-danger btn-sm" onclick="return confirmAction('ACC')">Setuju</a>
+                                    <a href="{{ route('setujui-hr', $cutiItem->id) }}" class="btn btn-danger btn-sm" onclick="return confirmAction('ACC')">Setuju</a>
                                 </td>
                                 <td class="text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
-                                    <a href="/tolak-pengajuan-hr/{{ $cutiItem->id }}" class="btn btn-danger btn-sm" onclick="return confirmAction('Tolak')">Tolak</a>
+                                    <a href="{{ route('tolak-hr', $cutiItem->id) }}" class="btn btn-danger btn-sm" onclick="return confirmAction('Tolak')">Tolak</a>
                                 </td>
                             </tr>
                             

@@ -57,15 +57,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/edit-profile', [InfoUserController::class, 'editDataUser'])->name('edit-data-user');    
     Route::post('/update-profile/{id}', [InfoUserController::class, 'updateDataUser'])->name('update-data-user');
 
- 
+    //kepegawaian
     Route::middleware(['checkrole:1', 'profile.complete'])->group(function (){
         Route::get('/list-pengajuan-cuti-hr', [ListPengajuanCutiHRController::class, 'showPengajuanHR'])->name('list-pengajuan-cuti-hr');
-        Route::get('/setujui-pengajuan-hr/{id}', [ListPengajuanCutiHRController::class, 'setujuiPengajuanHR']);
-        Route::get('/tolak-pengajuan-hr/{id}', [ListPengajuanCutiHRController::class, 'tolakPengajuanHR']);
+        Route::get('/setujui-hr/{id}', [ListPengajuanCutiHRController::class, 'setujuiPengajuan'])->name('setujui-hr');
+        Route::get('/tolak-hr/{id}', [ListPengajuanCutiHRController::class, 'tolakPengajuan'])->name('tolak-hr');
+        Route::get('/setujui-hra/{id}', [ListPengajuanCutiHRController::class, 'setujuiPengajuanAts'])->name('setujui-hra');
+        Route::get('/tolak-hra/{id}', [ListPengajuanCutiHRController::class, 'tolakPengajuanAts'])->name('tolak-hra');
         Route::get('/riwayat-verifikasi-hr', [ListPengajuanCutiHRController::class, 'showListHR'])->name('riwayat-verifikasi-hr');
     });
 
-
+    //Admin
     Route::middleware(['checkrole:2', 'profile.complete'])->group(function (){
         Route::get('/list-pengajuan-atasan', [AdminController::class, 'showPengajuanAtasan'])->name('list-pengajuan-atasan');
         Route::get('/setujui-pengajuan-ats/{id}', [AdminController::class, 'setujuiPengajuanAtasan']);
@@ -77,7 +79,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/list-pengajuan-hr', [AdminController::class, 'showPengajuanHR'])->name('list-pengajuan-hr');
     });
 
-    
+    //Atasan
     Route::middleware(['checkrole:3', 'profile.complete'])->group(function (){
         Route::get('/list-pengajuan-cuti', [ListPengajuanCutiAtasanController::class, 'showPengajuan'])->name('list-pengajuan-cuti');
         Route::get('/setujui-pengajuan/{id}', [ListPengajuanCutiAtasanController::class, 'setujuiPengajuan']);
@@ -92,7 +94,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/riwayat-cuti-atasan', [PengajuanCutiAtasanController::class, 'showRiwayat'])->name('riwayat-cuti-atasan');
     });
 
-
+    //Karyawan
     Route::middleware(['checkrole:4', 'profile.complete'])->group(function (){
         Route::get('/form-pengajuan', [PengajuanCutiKaryawanController::class, 'show'])->name('form-pengajuan');
         Route::post('/form-pengajuan', [PengajuanCutiKaryawanController::class, 'store'])->name('simpan-pengajuan');

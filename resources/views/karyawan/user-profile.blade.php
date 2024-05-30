@@ -66,7 +66,7 @@
                         <div>
                             <label for="email" class="form-control-label">Email</label>
                             <div class="@error('email')border border-danger rounded-3 @enderror">
-                                <input class="form-control" value="" type="email" placeholder="email" id="email" name="email" required>
+                                <input class="form-control" value="{{ auth()->user()->email }}" type="email" placeholder="email" id="email" name="email" required>
                                     @error('email')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror
